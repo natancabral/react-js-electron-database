@@ -24,11 +24,6 @@ $ npm install wait-on
 $ npm install concurrently
 ```
 
-#### Plus ??
-```bash
-$ npm install electron-build electron-is-dev
-```
-
 #### Electron index 
 * en: Open **package.json** file add insert above "scripts"
 > "main": "main.js",
@@ -46,6 +41,9 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
+      //webSecurity: false,
+      //allowRunningInsecureContent: true,
+      //preload: path.join(__dirname, 'preload.js')
       nodeIntegration: true
     }
   })
@@ -89,30 +87,34 @@ $ npm install -g electron-packager --save-dev
 ```
 #### Create OS files
 ```bash
-$ sudo electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out
-# or
-$ sudo electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico
-
+$ sudo electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds
+$ sudo electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds
+$ sudo electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds
 ```
 > All 
+* en: Open **package.json** and insert inside on scripts:
 ```bash
-"package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/app-icon/mac/app.icns --osx-sign.identity='React Electron Sqlite' --extend-info=assets/mac/info.plist",
-"package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+"package:mac:1": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds ",
+"package:mac:2": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds --icon=assets/icons/mac/icon.icns --prune=true",
+"package:mac:3": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds --icon=assets/icons/mac/app.icns --osx-sign.identity='React Electron Sqlite' --extend-info=assets/mac/info.plist",
 
-"package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico",
-"package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
+"package:linux:1": "electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds",
+"package:linux:2": "electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds --icon=assets/icons/png/1024x1024.png --prune=true"
 
-"package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out",
-"package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+"package:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
+"package:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
+"package:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
 
-"package:sign-exe": "signcode './out/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
+"package:sign-exe": "signcode './release-builds/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 "package:installer": "node ./script/installer.js",
-"package:sign-installer": "signcode './out/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
-
-
-
-
+"package:sign-installer": "signcode './release-builds/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 ```
+
+#### 
+```bash
+$ npm install electron-package electron-build
+```
+
 ####
 ```bash
 ```
