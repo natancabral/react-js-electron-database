@@ -44,7 +44,7 @@ function createWindow () {
     }
   })
 
-  win.loadFile('index.html')
+  win.loadFile('http://127.0.0.1:3000')
   win.webContents.openDevTools()
 }
 
@@ -62,6 +62,9 @@ app.on('activate', () => {
   }
 })
 ```
+* Make sure this line: 
+> loadFile('http://127.0.0.1:3000')
+
 ####
 ```bash
 ```
