@@ -90,16 +90,16 @@ $ npm install react react-dom
 ```bash
 $ npm install electron-package electron-builder --save-dev
 ```
-#### Create OS files
+#### Create App OS files
 ```bash
-// windows
+# windows
 $ sudo electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds
 # Linux
 $ sudo electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds
 # Mac
 $ sudo electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds
 ```
-> All 
+#### Shotcut to create App 
 * en: Open **package.json** and insert inside on scripts:
 ```json
 "package:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
