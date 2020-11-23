@@ -19,6 +19,7 @@ $ npm install electron --save-dev
 ```node
 $ npm install 
 ```
+#### Watch JSX files (react files)
 * en: Open **gulpfile.js** and insert watch .jsx (.js*) files.
 ```js
 // sample change js to js*
