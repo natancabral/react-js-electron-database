@@ -24,6 +24,11 @@ $ npm install wait-on
 $ npm install concurrently
 ```
 
+#### Plus ??
+```bash
+$ npm install electron-build electron-is-dev
+```
+
 #### Electron index 
 * en: Open **package.json** file add insert above "scripts"
 > "main": "main.js",
