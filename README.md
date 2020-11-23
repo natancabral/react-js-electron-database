@@ -75,15 +75,18 @@ app.on('activate', () => {
 ```bash
 $ npm run-script electron-react
 ```
-## Nice. Welcome React-Electron project!
+
+> # Done
+## Welcome React-Electron project!
 
 #### Install react react-dom
 ```bash
 $ npm install react react-dom
 ```
-#### Install electron-packager
+#### Create App files (linux|mac|win) + Installer package
+* en: Install [electron-package](https://github.com/electron/electron-packager/) and [electron-builder](https://www.npmjs.com/package/electron-builder/)
 ```bash
-$ npm install -g electron-packager --save-dev
+$ npm install electron-package electron-builder --save-dev
 ```
 #### Create OS files
 ```bash
@@ -110,29 +113,29 @@ $ sudo electron-packager . --overwrite --platform=darwin --arch=x64 --icon=asset
 "package:sign-installer": "signcode './release-builds/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 ```
 
-#### Close server x.x.x.x:3000
+#### Install find-process to close server x.x.x.x:3000
+* en: Install find-process
+```bash
+$ npm install find-process
+```
 * en: main.js
 ```js
 const find = require('find-process');
 
-app.on('before-quit' , (e) => {
-    find('port', 3000)
-        console.log(e.stack || e);
-      .then(function (list) {
-        console.log('---list---:',list[0].pid, list);
-      if(list[0] != null){
-          process.kill(list[0].pid, 'SIGHUP');
-      }
-    }.catch((e) => {
-        console.log(e.stack || e);
-    });
+app.on('before-quit', (e) => {
+  find('port', 3000)
+  .then(function (list) {  
+    if (list[0] != null) { 
+      console.log('---kill---:', list[0].pid);
+      process.kill(list[0].pid, 'SIGHUP'); 
+    }
+  })
+  .catch((e) => {
+    console.log('---error---',e.stack || e);
+  });
 });
 ```
 
-#### 
-```bash
-$ npm install electron-package electron-builder
-```
 
 ####
 ```bash
