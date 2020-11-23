@@ -13,7 +13,7 @@ $ npm install electron --save-dev
 ```
 ## Option One
 https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
-
+read: https://github.com/onmyway133/blog/issues/352
 #### Install Babel
 ```node
 $ npm install 
@@ -21,6 +21,15 @@ $ npm install
 ----
 
 ## Option Two
+https://github.com/hamzaak/electron-react-webpack-boilerplate
+
+#### Install Babel
+```node
+$ npm install 
+```
+----
+
+## Option Three
 #### Install Wait-on
 * en: [Wait-on](https://www.npmjs.com/package/wait-on) is a cross-platform command line utility which will wait for files, ports, sockets, and http(s) resources to become available (or not available using reverse mode). Functionality is also available via a Node.js API. Cross-platform - runs everywhere Node.js runs (linux, unix, mac OS X, windows)
 ```node
