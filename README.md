@@ -2,8 +2,8 @@
 
 #### Install React
 ```bash
-$ sudo create-react-app react-js-electron
-$ cd react-js-electron
+$ sudo create-react-app react-js-electron-sqlite
+$ cd react-js-electron-sqlite
 $ npm install
 ```
 
