@@ -30,11 +30,37 @@ $ npm install concurrently
 * en: Insert inside "scripts" 
 > "electron-react": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
 
-####
-```bash
-```
-####
-```bash
+#### Create main.js file
+* en: Copy this script: 
+```electron
+const { app, BrowserWindow } = require('electron')
+
+function createWindow () {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+
+  win.loadFile('index.html')
+  win.webContents.openDevTools()
+}
+
+app.whenReady().then(createWindow)
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
+  }
+})
 ```
 ####
 ```bash
