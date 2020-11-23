@@ -11,15 +11,22 @@ $ npm install
 ```bash
 $ npm install electron --save-dev
 ```
-#### package.json
-* en: Add above "scripts"
-> "main": "main.js",
 
-#### Install (Concurrently)[https://www.npmjs.com/package/concurrently]
-* en: Run multiple commands concurrently
+#### Install Wait-on
+* en: (Wait-on)[https://www.npmjs.com/package/wait-on] is a cross-platform command line utility which will wait for files, ports, sockets, and http(s) resources to become available (or not available using reverse mode). Functionality is also available via a Node.js API. Cross-platform - runs everywhere Node.js runs (linux, unix, mac OS X, windows)
+```bash
+$ npm install wait-on
+```
+
+#### Install Concurrently
+* en: Run multiple commands (concurrently)[https://www.npmjs.com/package/concurrently]
 ```bash
 $ npm install concurrently
 ```
+
+#### Electron index 
+* en: Open **package.json** file add insert above "scripts"
+> "main": "main.js",
 
 ####
 * en: Edit package.json file, on scripts: 
