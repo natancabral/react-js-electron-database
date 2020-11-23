@@ -76,8 +76,10 @@ app.on('activate', () => {
 $ npm run-script electron-react
 ```
 
-> # Done
+# Done
 ## Welcome React-Electron project!
+
+---
 
 #### Install react react-dom
 ```bash
