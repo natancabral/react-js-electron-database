@@ -9,7 +9,7 @@ $ npm install
 
 #### Install Electron
 ```bash
-$ npm install electron --save-dev
+$ npm install electron 
 ```
 
 #### Install Wait-on
@@ -27,10 +27,8 @@ $ npm install concurrently
 #### Electron index 
 * en: Open **package.json** file add insert above "scripts"
 > "main": "main.js",
-
-####
-* en: Edit package.json file, on scripts: 
-> "electron-react": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\""
+* en: Insert inside "scripts" 
+> "electron-react": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
 
 ####
 ```bash
