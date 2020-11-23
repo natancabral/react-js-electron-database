@@ -39,6 +39,7 @@ $ npm install electron-build electron-is-dev
 * en: Copy this script: 
 ```js
 const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -49,8 +50,8 @@ function createWindow () {
     }
   })
 
-  win.loadFile('http://127.0.0.1:3000')
-  win.webContents.openDevTools()
+  win.loadFile('index.html')
+  //win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
@@ -67,8 +68,10 @@ app.on('activate', () => {
   }
 })
 ```
-* Make sure this line: 
-> loadFile('http://127.0.0.1:3000')
+* en: Change from this: (file)
+> mainWindow.loadFile('index.html')
+* en: To this: (url)
+> mainWindow.loadURL('http://127.0.0.1:3000')
 
 #### Run app
 ```bash
