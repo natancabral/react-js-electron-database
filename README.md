@@ -24,7 +24,7 @@ $ npm install
 ```js
 // sample change js to js*
 gulp.task('js*', () => {
-return gulp.src(['src/**/*.jsx*'])
+return gulp.src(['src/**/*.js*'])
 gulp.watch('src/**/*.js*', gulp.series('js*'));  
 gulp.task('build', gulp.series('html', 'css', 'js*', 'images'));
 
