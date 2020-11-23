@@ -9,13 +9,16 @@ $ npm install
 
 #### Install Electron
 ```bash
-npm install electron --save-dev
+$ npm install electron --save-dev
 ```
-####
+#### package.json
+* en: Add above "scripts"
+> "main": "main.js",
+
+#### Install (Concurrently)[https://www.npmjs.com/package/concurrently]
+* en: Run multiple commands concurrently
 ```bash
-```
-####
-```bash
+$ npm install concurrently
 ```
 
 ####
@@ -41,6 +44,7 @@ npm install electron --save-dev
 ```bash
 ```
 
-/*
+<!-- 
+React + Electron
 https://www.youtube.com/watch?v=2_fROfS8FPE
-*/
+--
