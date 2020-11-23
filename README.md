@@ -19,7 +19,7 @@ $ npm install wait-on
 ```
 
 #### Install Concurrently
-* en: Run multiple commands (concurrently)[https://www.npmjs.com/package/concurrently]
+* en: Run multiple commands [concurrently](https://www.npmjs.com/package/concurrently)
 ```bash
 $ npm install concurrently
 ```
