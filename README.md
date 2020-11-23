@@ -67,9 +67,9 @@ app.on('activate', () => {
 })
 ```
 * en: Change from this: (file)
-> mainWindow.loadFile('index.html')
+> .loadFile('index.html')
 * en: To this: (url)
-> mainWindow.loadURL('http://127.0.0.1:3000')
+> .loadURL('http://127.0.0.1:3000')
 
 #### Run app
 ```bash
@@ -93,7 +93,7 @@ $ sudo electron-packager . --overwrite --platform=darwin --arch=x64 --icon=asset
 ```
 > All 
 * en: Open **package.json** and insert inside on scripts:
-```bash
+```json
 "package:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
 "package:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
 "package:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
@@ -110,14 +110,30 @@ $ sudo electron-packager . --overwrite --platform=darwin --arch=x64 --icon=asset
 "package:sign-installer": "signcode './release-builds/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 ```
 
-#### 
-```bash
-$ npm install electron-package electron-build
+#### Close server x.x.x.x:3000
+* en: main.js
+```js
+const find = require('find-process');
+
+app.on('before-quit' , (e) => {
+    find('port', 3000)
+        console.log(e.stack || e);
+      .then(function (list) {
+        console.log('---list---:',list[0].pid, list);
+      if(list[0] != null){
+          process.kill(list[0].pid, 'SIGHUP');
+      }
+    }.catch((e) => {
+        console.log(e.stack || e);
+    });
+});
 ```
 
-####
+#### 
 ```bash
+$ npm install electron-package electron-builder
 ```
+
 ####
 ```bash
 ```
