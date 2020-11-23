@@ -32,7 +32,7 @@ $ npm install concurrently
 
 #### Create main.js file
 * en: Copy this script: 
-```react
+```js
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
