@@ -94,16 +94,16 @@ $ sudo electron-packager . --overwrite --platform=darwin --arch=x64 --icon=asset
 > All 
 * en: Open **package.json** and insert inside on scripts:
 ```bash
-"package:mac:1": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds ",
+"package:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
+"package:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
+"package:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
+
+"package:mac:1": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds",
 "package:mac:2": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds --icon=assets/icons/mac/icon.icns --prune=true",
 "package:mac:3": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds --icon=assets/icons/mac/app.icns --osx-sign.identity='React Electron Sqlite' --extend-info=assets/mac/info.plist",
 
 "package:linux:1": "electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds",
 "package:linux:2": "electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds --icon=assets/icons/png/1024x1024.png --prune=true"
-
-"package:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
-"package:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
-"package:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
 
 "package:sign-exe": "signcode './release-builds/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 "package:installer": "node ./script/installer.js",
