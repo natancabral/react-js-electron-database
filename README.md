@@ -19,6 +19,14 @@ $ npm install electron --save-dev
 ```node
 $ npm install 
 ```
+* en: Open **gulpfile.js** and insert watch .jsx (.js*) files.
+```
+gulp.task('js*', () => {
+return gulp.src(['src/**/*.jsx*'])
+gulp.watch('src/**/*.js*', gulp.series('js*'));  
+gulp.task('build', gulp.series('html', 'css', 'js*', 'images'));
+
+```
 ----
 
 ## Option two (linux|mac)
