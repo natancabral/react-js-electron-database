@@ -76,8 +76,8 @@ app.on('activate', () => {
 $ npm run-script electron-react
 ```
 
-# Done
-## Welcome React-Electron project!
+# Done!
+Welcome React-Electron project!
 
 ---
 
@@ -92,8 +92,11 @@ $ npm install electron-package electron-builder --save-dev
 ```
 #### Create OS files
 ```bash
+// windows
 $ sudo electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds
+# Linux
 $ sudo electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds
+# Mac
 $ sudo electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds
 ```
 > All 
