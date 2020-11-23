@@ -65,8 +65,9 @@ app.on('activate', () => {
 * Make sure this line: 
 > loadFile('http://127.0.0.1:3000')
 
-####
+#### Run app
 ```bash
+$ npm run-script electron-react
 ```
 ####
 ```bash
