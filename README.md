@@ -44,6 +44,7 @@ $ npm install concurrently
 ```js
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+//const url = require('url')
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -85,10 +86,12 @@ app.on('activate', () => {
 $ npm run-script electron-react
 ```
 
-# Done!
+## Done!
 Welcome React-Electron project!
 
 ---
+
+## Create App
 
 #### Install react react-dom
 ```bash
