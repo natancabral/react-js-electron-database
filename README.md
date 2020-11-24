@@ -2,64 +2,30 @@
 
 * Create project
   * Begin with: [React](#begin-with-react)
-  * Begin with: Electron
+  * Begin with: [Electron](#begin-with-electron)
 * Create server
-  * Working with: Babel
+  * Working with: [Babel](#working with-babel)
   * Working with: Concurrently + Wait-on
 * Build App
 
 ## Begin with: React
+First option begin with React
 #### Create project and install React
 ```bash
 # you need node.js
 $ npx create-react-app react-js-electron-sqlite
 $ cd react-js-electron-sqlite
 ```
-
 #### Install Electron
 ```bash
 # need sudo
 $ npm install electron --save-dev
 ```
-## Option one (linux|mac|win)
-* read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
-* read: https://github.com/onmyway133/blog/issues/352
-* read: https://github.com/hamzaak/electron-react-webpack-boilerplate
-
-#### Install Babel
-```node
-$ npm install 
-```
-#### Watch JSX files (react files)
-* en: Open **gulpfile.js** and insert watch .jsx (.js*) files.
-```js
-// sample change js to js*
-gulp.task('js*', () => {
-return gulp.src(['src/**/*.js*'])
-gulp.watch('src/**/*.js*', gulp.series('js*'));  
-gulp.task('build', gulp.series('html', 'css', 'js*', 'images'));
-
-```
-----
-
-## Option two (linux|mac)
-#### Install Wait-on
-* en: [Wait-on](https://www.npmjs.com/package/wait-on) is a cross-platform command line utility which will wait for files, ports, sockets, and http(s) resources to become available (or not available using reverse mode). Functionality is also available via a Node.js API. Cross-platform - runs everywhere Node.js runs (linux, unix, mac OS X, windows)
-```node
-$ npm install wait-on
-```
-
-#### Install Concurrently
-* en: Run multiple commands [concurrently](https://www.npmjs.com/package/concurrently)
-```bash
-$ npm install concurrently
-```
-
-#### Electron index 
+#### Update package.json file
 * en: Open **package.json** file add insert above "scripts"
 > "main": "main.js",
-* en: Insert inside "scripts" 
-> "electron-react": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+* en: Insert inside "scripts"
+> "electron": "electron .",
 
 #### Create main.js file
 * en: Copy this script: 
@@ -81,6 +47,7 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
+  //win.loadURL('http://127.0.0.1:3000')
   //win.webContents.openDevTools()
 }
 
@@ -98,6 +65,61 @@ app.on('activate', () => {
   }
 })
 ```
+
+## Begin with: Electron
+Second option begin with Electron
+```bash
+# you need node.js
+$ git clone https://github.com/electron/electron-quick-start react-js-electron-sqlite
+$ cd react-js-electron-sqlite
+$ npm install
+$ npm start
+```
+#### Install react react-dom
+```bash
+$ npm install react react-dom
+```
+## Working with: Babel
+
+## Option one (linux|mac|win)
+* read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
+* read: https://github.com/onmyway133/blog/issues/352
+* read: https://github.com/hamzaak/electron-react-webpack-boilerplate
+
+#### Install Babel
+```node
+$ npm install 
+```
+#### Watch JSX files (react files)
+* en: Open **gulpfile.js** and insert watch .jsx (.js*) files.
+```js
+// sample change js to js*
+gulp.task('js*', () => {
+return gulp.src(['src/**/*.js*'])
+gulp.watch('src/**/*.js*', gulp.series('js*'));  
+gulp.task('build', gulp.series('html', 'css', 'js*', 'images'));
+
+```
+----
+
+## Wait-on and Concurrently (linux|mac)
+#### Install Wait-on
+* en: [Wait-on](https://www.npmjs.com/package/wait-on) is a cross-platform command line utility which will wait for files, ports, sockets, and http(s) resources to become available (or not available using reverse mode). Functionality is also available via a Node.js API. Cross-platform - runs everywhere Node.js runs (linux, unix, mac OS X, windows)
+```node
+$ npm install wait-on
+```
+#### Install Concurrently
+* en: Run multiple commands [concurrently](https://www.npmjs.com/package/concurrently)
+```bash
+$ npm install concurrently
+```
+#### Run Wait-on + Concurrently
+* en: Insert inside "scripts" 
+```json
+"electron-react": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+```
+----
+
 * en: Change from this: (file)
 > .loadFile('index.html')
 * en: To this: (url)
@@ -115,10 +137,6 @@ Welcome React-Electron project!
 
 ## Create App
 
-#### Install react react-dom
-```bash
-$ npm install react react-dom
-```
 #### Create App files (linux|mac|win) + Installer package
 * en: Install [electron-packager](https://github.com/electron/electron-packager/) and [electron-builder](https://www.npmjs.com/package/electron-builder/)
 ```bash
@@ -198,6 +216,15 @@ app.on('before-quit', (e) => {
 
 
 
+# Error
+* Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/electron/.electron' [issues](https://github.com/npm/npm/issues/17268)
+```bash
+$ sudo npm install -g electron --unsafe-perm=true --allow-root
+```
+* Cant remove or update global create-react-app version.
+```bash
+$ sudo rm -rf /usr/local/bin/create-react-app
+```
 
 
 
