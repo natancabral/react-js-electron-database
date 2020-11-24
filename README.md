@@ -5,7 +5,7 @@
   * Begin with: [Electron](#begin-with-electron) (easy)
 * Create server
   * Working with: [Babel](#working-with-babel)
-  * Working with: Concurrently + Wait-on
+  * Working with: [Concurrently + Wait-on](#wait-on-and-concurrently-linuxmac)
 * Build App
 
 ## Begin with: React
