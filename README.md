@@ -117,24 +117,57 @@ mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'))
 
 ## Working with: Babel
 Transpiling ES6 with Babel 7. 
-#### Install Babel
+#### Install Babel + Preset
 ```node
 $ npm i @babel/core --save-dev # this will install babel 7.0 
-```
-#### Install Presents
-```node
 $ npm i @babel/preset-env @babel/preset-react --save-dev
 ```
 #### .babelrc file
 When it runs, it looks for its configuration in a file named .babelrc, so create in on the root and add:
 ```json
 { "presets": ["@babel/env", "@babel/react"] }
-```
+``
 #### Install Gulp
 Babel needs to run before any code executes and the best way schedule that is through a build tool
 ```bash
 $ npm i gulp gulp-babel --save-dev # basic gulp
 $ npm i gulp-concat gulp-clean-css --save-dev # plugins
+```
+#### Edit package.json file
+```json
+"main": "app/main.js",
+```
+#### Create gulpfile.js file
+Create a gulpfile.js at the root of your project and add the tasks
+```
+const exec = require('child_process').exec;
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const css = require('gulp-clean-css');// 1. Copy the index.html as is
+gulp.task('html', () => {
+    return gulp.src('src/index.html')
+        .pipe(gulp.dest('app/'));
+});// 2. Compile CSS file and move them to the app folder
+gulp.task('css', () => { // 2.
+    return gulp.src('src/**/*.css')
+        .pipe(css())
+        .pipe(gulp.dest('app/'));
+});// 3. Compile JS files and move them to the app folder
+gulp.task('js', () => { // 3.
+    return gulp.src(['main.js', 'src/**/*.js'])
+         .pipe(babel())
+         .pipe(gulp.dest('app/'));
+});// 4. Start the electron process.
+gulp.task('start', gulp.series('html', 'css', 'js', () => { // 4.
+    return exec(
+        __dirname+'/node_modules/.bin/electron .'
+    ).on('close', () => process.exit());
+}));
+```
+#### Edit package.json file
+inside **scripts**
+```json
+"start": "gulp start"
 ```
 
 ## Option one (linux|mac|win)
