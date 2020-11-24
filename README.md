@@ -145,6 +145,8 @@ Babel needs to run before any code executes and the best way schedule that is th
 ```bash
 $ npm i gulp gulp-babel --save-dev # basic gulp
 $ npm i gulp-concat gulp-clean-css --save-dev # plugins
+$ npm install -g gulp-cli # best sudo
+$ 
 $ npm i gulp-livereload
 ```
 #### Edit package.json file
