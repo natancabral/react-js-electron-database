@@ -66,6 +66,16 @@ app.on('activate', () => {
 })
 ```
 
+#### Create index.html file
+```html
+<html>
+  <body>
+    <h1>Hello Electron World</h1>
+    <h5>This is simple electron app</h5>
+  </body>
+</html>
+```
+
 ## Begin with: Electron
 Second option begin with Electron
 ```bash
