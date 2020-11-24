@@ -1,15 +1,13 @@
 # React-js + Electron + Sqlite3
 
 * Create project
-  * Options: 
-    1. Begin React
-    2. Begin Electron
+  1. Option 1: React
+  2. Option 2: Electron
 * Create server
-  * Options: 
-    * Begin Babel
-    * Begin Concurrently + Wait-on
-
-
+  1. Option 1: Babel
+  2. Option 2: Concurrently + Wait-on
+* Build App
+  
 #### Create project and install React
 ```bash
 # you need node.js
