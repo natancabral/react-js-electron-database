@@ -116,16 +116,32 @@ mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'))
 ```
 
 ## Working with: Babel
+Transpiling ES6 with Babel 7. 
+#### Install Babel
+```node
+$ npm i @babel/core --save-dev # this will install babel 7.0 
+```
+#### Install Presents
+```node
+$ npm i @babel/preset-env @babel/preset-react --save-dev
+```
+#### .babelrc file
+When it runs, it looks for its configuration in a file named .babelrc, so create in on the root and add:
+```json
+{ "presets": ["@babel/env", "@babel/react"] }
+```
+#### Install Gulp
+Babel needs to run before any code executes and the best way schedule that is through a build tool
+```bash
+$ npm i gulp gulp-babel --save-dev # basic gulp
+$ npm i gulp-concat gulp-clean-css --save-dev # plugins
+```
 
 ## Option one (linux|mac|win)
 * read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
 * read: https://github.com/onmyway133/blog/issues/352
 * read: https://github.com/hamzaak/electron-react-webpack-boilerplate
 
-#### Install Babel
-```node
-$ npm install 
-```
 #### Watch JSX files (react files)
 * en: Open **gulpfile.js** and insert watch .jsx (.js*) files.
 ```js
