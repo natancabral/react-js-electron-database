@@ -5,7 +5,7 @@
   * Begin with: [Electron](#begin-with-electron) (easy)
 * Create server
   * Working with: [Babel](#working-with-babel)
-  * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently)
+  * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
 * Build App
 
 ## Begin with: React
@@ -90,11 +90,12 @@ $ npm start
 ```bash
 $ npm install react react-dom
 ```
-#### Create index.html file
+#### Files
 * I will create a **src/** folder 
 * and move **index.html** and **renderer.js**, 
 * renamed as **renderer.js** to **index.js**.
-* I will create an **index.css** and link it to the html. Finally, add an app container div.
+* I will create an **index.css** and link it to the html. Finally, add an **app** container div.
+* Replace **index.html** file:
 ```html
 <!DOCTYPE html>
 <html>
@@ -110,23 +111,32 @@ $ npm install react react-dom
   </body>
 </html>
 ```
+#### Change main.js file
 With a small change to **main.js** so that it points to the correct file:
 ```js
-mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'))
+mainWindow.loadFile(path.join(__dirname, 'index.html'))
 ```
-
+and **preload.js** to **index.j**
+```js
+webPreferences: {
+  preload: path.join(__dirname, 'index.js')
+}
+```    
 ## Working with: Babel
 Transpiling ES6 with Babel 7. 
 #### Install Babel + Preset
-```node
+```bash
 $ npm i @babel/core --save-dev # this will install babel 7.0 
 $ npm i @babel/preset-env @babel/preset-react --save-dev
+$ npm i @babel/plugin-proposal-class-properties
 ```
 #### .babelrc file
 When it runs, it looks for its configuration in a file named .babelrc, so create in on the root and add:
 ```json
-{ "presets": ["@babel/env", "@babel/react"] }
-``
+{ 
+  "presets": ["@babel/env", "@babel/react"],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}``
 #### Install Gulp
 Babel needs to run before any code executes and the best way schedule that is through a build tool
 ```bash
