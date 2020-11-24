@@ -1,20 +1,22 @@
 # React-js + Electron + Sqlite3
 
-#### Install React
+#### Create project and install React
 ```bash
-$ sudo create-react-app react-js-electron-sqlite
+# you need node.js
+$ npx create-react-app react-js-electron-sqlite
 $ cd react-js-electron-sqlite
-$ npm install
 ```
 
 #### Install Electron
 ```bash
+# need sudo
 $ npm install electron --save-dev
 ```
 ## Option one (linux|mac|win)
 * read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
 * read: https://github.com/onmyway133/blog/issues/352
 * read: https://github.com/hamzaak/electron-react-webpack-boilerplate
+
 #### Install Babel
 ```node
 $ npm install 
