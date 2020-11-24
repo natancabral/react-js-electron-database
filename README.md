@@ -78,6 +78,7 @@ app.on('activate', () => {
 
 ## Begin with: Electron
 Second option begin with Electron
+#### Clone electron-quick-start project
 ```bash
 # you need node.js
 $ git clone https://github.com/electron/electron-quick-start react-js-electron-sqlite
