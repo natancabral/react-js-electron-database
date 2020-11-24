@@ -6,7 +6,9 @@
 * Create server
   * Working with: [Babel](#working-with-babel)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
-* Build App
+* [Packaging the app](#packaging-the-app)
+* Testing Code
+  * [Jest](#test)
 
 ## Begin with: React
 First option begin with React
@@ -151,12 +153,13 @@ $ npm i gulp-livereload
 ```
 #### Create gulpfile.js file
 Create a gulpfile.js at the root of your project and add the tasks
-```
+```js
 const exec = require('child_process').exec;
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const livereload = require('gulp-livereload');
 const css = require('gulp-clean-css');// 1. Copy the index.html as is
+const livereload = require('gulp-livereload');
+
 gulp.task('html', () => {
     return gulp.src('src/index.html')
         .pipe(gulp.dest('app/'));
@@ -181,6 +184,7 @@ gulp.task('start', gulp.series('html', 'css', 'js*', () => { // 4.
 inside **scripts**
 ```json
 "scripts": {
+    "electron": "electron .",
     "start": "gulp",
     "delete:all": "rm -r ./app",
     "postinstall": "install-app-deps",
@@ -196,7 +200,6 @@ $ npm run-script start
 # or 
 $ npm run start 
 ```
-
 
 * read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
 * read: https://github.com/onmyway133/blog/issues/352
@@ -231,13 +234,86 @@ $ npm install concurrently
 ```bash
 $ npm run-script electron-react
 ```
-
 ## Done!
 Welcome React-Electron project!
 
 ---
 
-## Create App
+## Packaging the app
+* en: There are mainly two options for packaging an Electron app and we will go with the second, Electron Builder (the other being Electron Packager).
+```bash
+$ npm i electron-builder --save-dev
+```
+We need to point the tool to the folder with the code to be compiled through the **package.json** by adding:
+```json 
+"build": {
+  "appId": "com.natancabral.react-js-electron-sqlite3",
+  "files": [
+    "app/**/*",
+    "node_modules/**/*",
+    "package.json"
+  ],
+  "publish": null
+}
+``` 
+* **.gulpfile** change all to:
+```js
+const exec = require('child_process').exec;
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const css = require('gulp-clean-css');
+const livereload = require('gulp-livereload');
+
+gulp.task('html', () => {
+    return gulp.src('src/index.html')
+        .pipe(gulp.dest('app/'))
+        .pipe(livereload());
+});
+
+gulp.task('css', () => {
+    return gulp.src('src/**/*.css')
+        .pipe(css())
+        .pipe(gulp.dest('app/'))
+        .pipe(livereload());
+});
+
+gulp.task('js*', () => {
+    return gulp.src(['main.js', 'src/**/*.js*'])
+         .pipe(babel())
+         .pipe(gulp.dest('app/'))
+         .pipe(livereload());
+});
+
+gulp.task('images', () => {
+    return gulp.src('src/assets/*')
+         .pipe(gulp.dest('app/assets'))
+         .pipe(livereload());
+})
+
+gulp.task('watch', async function() {
+  livereload.listen();
+  gulp.watch('src/**/*.html', gulp.series('html'));
+  gulp.watch('src/**/*.css', gulp.series('css'));
+  gulp.watch('src/**/*.js*', gulp.series('js*'));
+  gulp.watch('src/assets/**/*', gulp.series('images'));
+});
+
+gulp.task('build', gulp.series('html', 'css', 'js*', 'images'));
+
+gulp.task('start', gulp.series('build', () => {
+    return exec(
+        __dirname+'/node_modules/.bin/electron .'
+    ).on('close', () => process.exit());
+}));
+
+gulp.task('default', gulp.parallel('start', 'watch'));
+
+gulp.task('release', gulp.series('build', () => {
+    return exec(
+        __dirname+'/node_modules/.bin/electron-builder .'
+    ).on('close', () => process.exit());
+}));
+``` 
 
 #### Create App files (linux|mac|win) + Installer package
 * en: Install [electron-packager](https://github.com/electron/electron-packager/) and [electron-builder](https://www.npmjs.com/package/electron-builder/)
@@ -307,11 +383,25 @@ app.on('before-quit', (e) => {
 ```
 ####
 ```bash
+    "electron-builder": "^20.39.0",
+    "electron-icon-maker": "0.0.5",
+    "electron-packager": "^15.1.0",
+    "electron-react-devtools": "^0.5.3",
 ```
 
 
 
 
+## Test
+#### Jest test
+```bash
+$ npm i jest
+$ npm i babel-jest
+```
+#### React test renderer
+```bash
+$ npm i react-test-renderer
+```
 
 
 
