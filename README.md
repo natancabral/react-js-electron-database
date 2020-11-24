@@ -1,8 +1,8 @@
 # React-js + Electron + Sqlite3
 
 * Create project
-  * Begin with: [React](#begin-with-react)
-  * Begin with: [Electron](#begin-with-electron)
+  * Begin with: [React](#begin-with-react) (advanced)
+  * Begin with: [Electron](#begin-with-electron) (easy)
 * Create server
   * Working with: [Babel](#working with-babel)
   * Working with: Concurrently + Wait-on
