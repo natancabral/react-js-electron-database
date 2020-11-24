@@ -90,6 +90,31 @@ $ npm start
 ```bash
 $ npm install react react-dom
 ```
+#### Create index.html file
+* I will create a **src/** folder 
+* and move **index.html** and **renderer.js**, 
+* renamed as **renderer.js** to **index.js**.
+* I will create an **index.css** and link it to the html. Finally, add an app container div.
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <title>Electrate</title>
+  </head>
+  <body>
+    <div id="app">
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
+```
+With a small change to **main.js** so that it points to the correct file:
+```js
+mainWindow.loadFile(path.join(__dirname, 'src', 'index.html'))
+```
+
 ## Working with: Babel
 
 ## Option one (linux|mac|win)
