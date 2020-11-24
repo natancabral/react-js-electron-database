@@ -136,12 +136,14 @@ When it runs, it looks for its configuration in a file named .babelrc, so create
 { 
   "presets": ["@babel/env", "@babel/react"],
   "plugins": ["@babel/plugin-proposal-class-properties"]
-}``
+}
+```
 #### Install Gulp
 Babel needs to run before any code executes and the best way schedule that is through a build tool
 ```bash
 $ npm i gulp gulp-babel --save-dev # basic gulp
 $ npm i gulp-concat gulp-clean-css --save-dev # plugins
+$ npm i gulp-livereload
 ```
 #### Edit package.json file
 ```json
@@ -153,6 +155,7 @@ Create a gulpfile.js at the root of your project and add the tasks
 const exec = require('child_process').exec;
 const gulp = require('gulp');
 const babel = require('gulp-babel');
+const livereload = require('gulp-livereload');
 const css = require('gulp-clean-css');// 1. Copy the index.html as is
 gulp.task('html', () => {
     return gulp.src('src/index.html')
@@ -163,12 +166,12 @@ gulp.task('css', () => { // 2.
         .pipe(css())
         .pipe(gulp.dest('app/'));
 });// 3. Compile JS files and move them to the app folder
-gulp.task('js', () => { // 3.
-    return gulp.src(['main.js', 'src/**/*.js'])
+gulp.task('js*', () => { // 3.
+    return gulp.src(['main.js', 'src/**/*.js*'])
          .pipe(babel())
          .pipe(gulp.dest('app/'));
 });// 4. Start the electron process.
-gulp.task('start', gulp.series('html', 'css', 'js', () => { // 4.
+gulp.task('start', gulp.series('html', 'css', 'js*', () => { // 4.
     return exec(
         __dirname+'/node_modules/.bin/electron .'
     ).on('close', () => process.exit());
@@ -177,24 +180,28 @@ gulp.task('start', gulp.series('html', 'css', 'js', () => { // 4.
 #### Edit package.json file
 inside **scripts**
 ```json
-"start": "gulp start"
+"scripts": {
+    "start": "gulp",
+    "delete:all": "rm -r ./app",
+    "postinstall": "install-app-deps",
+    "build": "gulp build",
+    "test": "gulp test",
+    "release": "gulp release",
+    "make-icon": "gulp make-icon"
+}
+```
+#### Run
+```bash
+$ npm run-script start 
+# or 
+$ npm run start 
 ```
 
-## Option one (linux|mac|win)
+
 * read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
 * read: https://github.com/onmyway133/blog/issues/352
 * read: https://github.com/hamzaak/electron-react-webpack-boilerplate
 
-#### Watch JSX files (react files)
-* en: Open **gulpfile.js** and insert watch .jsx (.js*) files.
-```js
-// sample change js to js*
-gulp.task('js*', () => {
-return gulp.src(['src/**/*.js*'])
-gulp.watch('src/**/*.js*', gulp.series('js*'));  
-gulp.task('build', gulp.series('html', 'css', 'js*', 'images'));
-
-```
 ----
 
 ## Working with: Wait-on and Concurrently 
