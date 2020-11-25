@@ -266,7 +266,7 @@ And this:
 Babel cant import css files in js or jsx.
 > **import './style.css'** show error
 
-You need css files inside react node context or index.html file.
+You need load css files inside react-context or index.html file.
 
 #### Run
 ```bash
