@@ -8,7 +8,7 @@
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (need nodejs installed to run)
 * Database
   * Sqlite3 (todo)
-* [Packaging App](#packaging-app)
+* Packaging App
   * [Electron Builder](#electron-builder)
   * [Electron Packager](#electron-packager)
 * Update (npm audit fix, npm update)
@@ -321,7 +321,7 @@ Welcome React-Electron project!
 
 ----
 # Packaging App
-----
+
 ## Electron Builder
 * en: There are mainly two options for packaging an Electron app and we will go with the second, [Electron Builder](https://www.npmjs.com/package/electron-builder/) (the other being Electron Packager).
 ```bash
