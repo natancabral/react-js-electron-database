@@ -3,7 +3,7 @@
 * Create project
   * Begin with: [React](#begin-with-react)
   * Begin with: [Electron](#begin-with-electron)
-* Create server
+* Run React
   * Working with: [Babel](#working-with-babel)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
 * [Packaging App](#packaging-app)
