@@ -91,6 +91,15 @@ app.on('activate', () => {
   </body>
 </html>
 ```
+####  Install react react-dom
+```bash
+# need sudo
+$ npm install react react-dom
+```
+#### Done!
+```bash
+$ npm run electron
+```
 
 ## Begin with: Electron
 Second option begin with Electron
