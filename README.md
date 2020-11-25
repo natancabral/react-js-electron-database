@@ -16,6 +16,10 @@
 * [Test](#test)
 * [Error](#error)
 
+----
+# Create Project
+----
+
 ## Begin with: React
 <!--
 * read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
@@ -129,12 +133,15 @@ With a small change to **main.js** so that it points to the correct file:
 ```js
 mainWindow.loadFile(path.join(__dirname, 'index.html'))
 ```
-and **preload.js** to **index.j**
+and **preload.js** to **index.js**
 ```js
 webPreferences: {
   preload: path.join(__dirname, 'index.js')
 }
-```    
+```
+----
+# Run React
+----
 ## Working with: Babel
 Transpiling ES6 with Babel 7. 
 #### Install Babel + Preset
@@ -245,9 +252,9 @@ $ npm run-script electron-react
 ## Done!
 Welcome React-Electron project!
 
----
-
-## Packaging App
+----
+# Packaging App
+----
 #### Electron Builder
 * en: There are mainly two options for packaging an Electron app and we will go with the second, [Electron Builder](https://www.npmjs.com/package/electron-builder/) (the other being Electron Packager).
 ```bash
@@ -332,6 +339,7 @@ gulp.task('release', gulp.series('build', () => {
     ).on('close', () => process.exit());
 }));
 ``` 
+
 #### Electron Packager
 * en: Install [electron-packager](https://github.com/electron/electron-packager/)
 ```bash
@@ -366,6 +374,9 @@ scripts: {
 "packager:sign-installer": "signcode './release-builds/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 }
 ```
+----
+# Others
+----
 
 ## Kill Process port:3000
 #### Install find-process to close server x.x.x.x:3000
