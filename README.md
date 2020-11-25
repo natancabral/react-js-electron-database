@@ -6,6 +6,8 @@
 * Run React
   * Working with: [Babel](#working-with-babel)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
+* Database
+  * Sqlite3 (todo)
 * [Packaging App](#packaging-app)
   * [Electron Builder](#electron-builder)
   * [Electron Packager](#electron-packager)
