@@ -18,7 +18,6 @@
 
 ----
 # Create Project
-----
 
 ## Begin with: React
 <!--
@@ -141,7 +140,7 @@ webPreferences: {
 ```
 ----
 # Run React
-----
+
 ## Working with: Babel
 Transpiling ES6 with Babel 7. 
 #### Install Babel + Preset
@@ -249,13 +248,13 @@ $ npm install concurrently
 ```bash
 $ npm run-script electron-react
 ```
-## Done!
+#### Done!
 Welcome React-Electron project!
 
 ----
 # Packaging App
 ----
-#### Electron Builder
+## Electron Builder
 * en: There are mainly two options for packaging an Electron app and we will go with the second, [Electron Builder](https://www.npmjs.com/package/electron-builder/) (the other being Electron Packager).
 ```bash
 $ npm i electron-builder --save-dev
@@ -340,7 +339,7 @@ gulp.task('release', gulp.series('build', () => {
 }));
 ``` 
 
-#### Electron Packager
+## Electron Packager
 * en: Install [electron-packager](https://github.com/electron/electron-packager/)
 ```bash
 $ npm install electron-packager --save-dev
@@ -376,7 +375,6 @@ scripts: {
 ```
 ----
 # Others
-----
 
 ## Kill Process port:3000
 #### Install find-process to close server x.x.x.x:3000
