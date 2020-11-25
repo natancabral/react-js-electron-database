@@ -82,7 +82,7 @@ app.on('activate', () => {
 })
 ```
 
-#### Create index.html file
+#### index.html file
 ```html
 <!DOCTYPE html>
 <html>
@@ -148,13 +148,24 @@ $ npm install react react-dom
 #### Change main.js file
 With a small change to **main.js** so that it points to the correct file:
 ```js
-mainWindow.loadFile(path.join(__dirname, 'index.html'))
+.loadFile(path.join(__dirname, 'index.html'))
 ```
 and **preload.js** to **index.js**
 ```js
 webPreferences: {
   preload: path.join(__dirname, 'index.js')
 }
+```
+#### index.js
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+//import App from './App.js'; // <-- App / begin React
+import App from './app.js'; // <-- app / begin Electron
+
+window.onload = () => {
+    ReactDOM.render(<App />, document.getElementById('app'));
+};
 ```
 ----
 # Run React
@@ -216,6 +227,7 @@ gulp.task('js*', () => {
 });
 
 //4. Compile IMAGES file and move them to the app folder
+// ------------------------------------------------------------------------------------ All images inside ./assets/
 gulp.task('images', () => {
     return gulp.src('src/assets/*')
          .pipe(gulp.dest('app/assets'))
