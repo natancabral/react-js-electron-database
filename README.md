@@ -5,6 +5,7 @@
   * Begin with: [Electron](#begin-with-electron)
 * Run React
   * Working with: [Babel](#working-with-babel)
+    * [CSS error](#css-error)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
 * Database
   * Sqlite3 (todo)
@@ -190,32 +191,6 @@ Create a gulpfile.js at the root of your project and add the tasks
 const exec = require('child_process').exec;
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const css = require('gulp-clean-css');// 1. Copy the index.html as is
-const livereload = require('gulp-livereload');
-
-gulp.task('html', () => {
-    return gulp.src('src/index.html')
-        .pipe(gulp.dest('app/'));
-});// 2. Compile CSS file and move them to the app folder
-gulp.task('css', () => { // 2.
-    return gulp.src('src/**/*.css')
-        .pipe(css())
-        .pipe(gulp.dest('app/'));
-});// 3. Compile JS files and move them to the app folder
-gulp.task('js*', () => { // 3.
-    return gulp.src(['main.js', 'src/**/*.js*'])
-         .pipe(babel())
-         .pipe(gulp.dest('app/'));
-});// 4. Start the electron process.
-gulp.task('start', gulp.series('html', 'css', 'js*', () => { // 4.
-    return exec(
-        __dirname+'/node_modules/.bin/electron .'
-    ).on('close', () => process.exit());
-}));
-333333333333333333333333
-const exec = require('child_process').exec;
-const gulp = require('gulp');
-const babel = require('gulp-babel');
 const css = require('gulp-clean-css');
 const livereload = require('gulp-livereload');
 1. Compile HTML file and move them to the app folder
@@ -288,6 +263,10 @@ And this:
     "release": "gulp release"
 }
 ```
+#### CSS error
+Babel cant import css files in js or jsx.
+> **import './style.css'** show error
+You need css files inside react node context or index.html file.
 
 #### Run
 ```bash
@@ -295,8 +274,8 @@ $ npm run-script start
 # or 
 $ npm run start 
 ```
-----
 
+----
 ## Working with: Wait-on and Concurrently 
 
 #### Install Wait-on
