@@ -4,8 +4,7 @@
   * Begin with: [React](#begin-with-react)
   * Begin with: [Electron](#begin-with-electron)
 * Run React
-  * Working with: [Babel](#working-with-babel)
-    * [CSS error](#css-error)
+  * Working with: [Babel](#working-with-babel) | read: [css-error](#css-error)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
 * Database
   * Sqlite3 (todo)
@@ -266,6 +265,7 @@ And this:
 #### CSS error
 Babel cant import css files in js or jsx.
 > **import './style.css'** show error
+
 You need css files inside react node context or index.html file.
 
 #### Run
