@@ -11,6 +11,11 @@
   * [Jest](#test)
 
 ## Begin with: React
+<!--
+* read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
+* read: https://github.com/onmyway133/blog/issues/352
+* read: https://github.com/hamzaak/electron-react-webpack-boilerplate
+-->
 First option begin with React
 #### Create project and install React
 ```bash
@@ -146,7 +151,6 @@ Babel needs to run before any code executes and the best way schedule that is th
 $ npm i gulp gulp-babel --save-dev # basic gulp
 $ npm i gulp-concat gulp-clean-css --save-dev # plugins
 $ npm install -g gulp-cli # best sudo
-$ 
 $ npm i gulp-livereload
 ```
 #### Edit package.json file
@@ -202,14 +206,10 @@ $ npm run-script start
 # or 
 $ npm run start 
 ```
-
-* read: https://medium.com/@michael.m/creating-an-electron-and-react-template-5173d086549a
-* read: https://github.com/onmyway133/blog/issues/352
-* read: https://github.com/hamzaak/electron-react-webpack-boilerplate
-
 ----
 
 ## Working with: Wait-on and Concurrently 
+
 #### Install Wait-on
 * en: [Wait-on](https://www.npmjs.com/package/wait-on) is a cross-platform command line utility which will wait for files, ports, sockets, and http(s) resources to become available (or not available using reverse mode). Functionality is also available via a Node.js API. Cross-platform - runs everywhere Node.js runs (linux, unix, mac OS X, windows)
 ```node
