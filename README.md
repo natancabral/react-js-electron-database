@@ -158,7 +158,7 @@ $ npm i @babel/core --save-dev # this will install babel 7.0
 $ npm i @babel/preset-env @babel/preset-react --save-dev
 $ npm i @babel/plugin-proposal-class-properties
 ```
-#### .babelrc file
+#### Create .babelrc file
 When it runs, it looks for its configuration in a file named .babelrc, so create in on the root and add:
 ```json
 { 
@@ -427,6 +427,11 @@ $ sudo npm install -g electron --unsafe-perm=true --allow-root
 ```bash
 $ sudo rm -rf /usr/local/bin/create-react-app
 ```
+* Danger: Permission denied
+```bash
+$ sudo npm install ... --unsafe-perm=true --allow-root # danger
+```
+
 <!-- 
 React + Electron
 https://www.youtube.com/watch?v=2_fROfS8FPE
