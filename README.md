@@ -6,10 +6,13 @@
 * Create server
   * Working with: [Babel](#working-with-babel)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
-* [Packaging the app](#packaging-the-app)
+* [Packaging App](#packaging-app)
+  * [Electron Builder](#electron-builder)
+  * [Electron Packager](#electron-packager)
 * Update (npm audit fix, npm update)
-* Testing Code
-  * [Jest](#test)
+* [Kill Process](#)
+* [Test](#test)
+* [Error](#error)
 
 ## Begin with: React
 <!--
@@ -227,8 +230,8 @@ $ npm install concurrently
 "electron-react": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
 ```
 ----
-
-* en: Change from this: (file)
+#### main.js
+* en: Remember change this: (file)
 > .loadFile('index.html')
 * en: To this: (url)
 > .loadURL('http://127.0.0.1:3000')
@@ -242,8 +245,9 @@ Welcome React-Electron project!
 
 ---
 
-## Packaging the app
-* en: There are mainly two options for packaging an Electron app and we will go with the second, Electron Builder (the other being Electron Packager).
+## Packaging App
+#### Electron Builder
+* en: There are mainly two options for packaging an Electron app and we will go with the second, [Electron Builder](https://www.npmjs.com/package/electron-builder/) (the other being Electron Packager).
 ```bash
 $ npm i electron-builder --save-dev
 ```
@@ -258,7 +262,16 @@ We need to point the tool to the folder with the code to be compiled through the
   ],
   "publish": null
 }
+```
+And inside scritps.
+```json 
+  "scripts": {
+    "build:pack": "electron-builder --dir",
+    "build:dist": "electron-builder",
+    "build:postinstall": "electron-builder install-app-deps",
+  }
 ``` 
+
 * **.gulpfile** change all to:
 ```js
 const exec = require('child_process').exec;
@@ -317,11 +330,10 @@ gulp.task('release', gulp.series('build', () => {
     ).on('close', () => process.exit());
 }));
 ``` 
-
-#### Create App files (linux|mac|win) + Installer package
-* en: Install [electron-packager](https://github.com/electron/electron-packager/) and [electron-builder](https://www.npmjs.com/package/electron-builder/)
+#### Electron Packager
+* en: Install [electron-packager](https://github.com/electron/electron-packager/)
 ```bash
-$ npm install electron-packager electron-builder --save-dev
+$ npm install electron-packager --save-dev
 ```
 #### Create App OS files
 ```bash
@@ -335,6 +347,7 @@ $ electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/ico
 #### Shotcut to create App 
 * en: Open **package.json** and insert inside on scripts:
 ```json
+scripts: {
 "packager:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
 "packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
 "packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
@@ -349,8 +362,10 @@ $ electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/ico
 "packager:sign-exe": "signcode './release-builds/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 "packager:installer": "node ./script/installer.js",
 "packager:sign-installer": "signcode './release-builds/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
+}
 ```
 
+## Kill Process port:3000
 #### Install find-process to close server x.x.x.x:3000
 * en: Install find-process
 ```bash
@@ -373,28 +388,6 @@ app.on('before-quit', (e) => {
   });
 });
 ```
-
-
-####
-```bash
-```
-####
-```bash
-```
-####
-```bash
-```
-####
-```bash
-    "electron-builder": "^20.39.0",
-    "electron-icon-maker": "0.0.5",
-    "electron-packager": "^15.1.0",
-    "electron-react-devtools": "^0.5.3",
-```
-
-
-
-
 ## Test
 #### Jest test
 ```bash
@@ -405,13 +398,7 @@ $ npm i babel-jest
 ```bash
 $ npm i react-test-renderer
 ```
-
-
-
-
-
-
-# Error
+## Error
 * Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/electron/.electron' [issues](https://github.com/npm/npm/issues/17268)
 ```bash
 $ sudo npm install -g electron --unsafe-perm=true --allow-root
@@ -420,11 +407,6 @@ $ sudo npm install -g electron --unsafe-perm=true --allow-root
 ```bash
 $ sudo rm -rf /usr/local/bin/create-react-app
 ```
-
-
-
-
-
 <!-- 
 React + Electron
 https://www.youtube.com/watch?v=2_fROfS8FPE
