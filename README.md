@@ -5,7 +5,7 @@
   * Begin with: [Electron](#begin-with-electron)
 * Run React
   * Working with: [Babel](#working-with-babel) | read: [css-error](#css-error)
-  * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
+  * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (need nodejs installed to run)
 * Database
   * Sqlite3 (todo)
 * [Packaging App](#packaging-app)
