@@ -7,6 +7,7 @@
   * Working with: [Babel](#working-with-babel)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (slow)
 * [Packaging the app](#packaging-the-app)
+* Update (npm audit fix, npm update)
 * Testing Code
   * [Jest](#test)
 
