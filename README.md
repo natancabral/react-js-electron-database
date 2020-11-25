@@ -84,10 +84,18 @@ app.on('activate', () => {
 
 #### Create index.html file
 ```html
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <title>React-js + Electron + Sqlite3</title>
+  </head>
   <body>
-    <h1>Hello Electron World</h1>
-    <h5>This is simple electron app</h5>
+    <h1>React-js + Electron + Sqlite3</h1>
+    <div id="app">
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>
 ```
@@ -127,9 +135,10 @@ $ npm install react react-dom
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./index.css">
-    <title>Electrate</title>
+    <title>React-js + Electron + Sqlite3</title>
   </head>
   <body>
+    <h1>React-js + Electron + Sqlite3</h1>
     <div id="app">
     </div>
     <script src="./index.js"></script>
