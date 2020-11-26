@@ -550,11 +550,14 @@ $ sudo rm -rf /usr/local/bin/create-react-app
 ```bash
 $ sudo npm install --save-dev @babel/core @babel/cli
 $ sudo npx babel-upgrade --write --install # --install optional
-
 ```
 * Danger: Permission denied
 ```bash
 $ sudo npm install ... --unsafe-perm=true --allow-root # danger
+```
+* Gtk-Message: hh:mm:ss.mls: Failed to load module "canberra-gtk-module"
+```bash
+$  sudo apt-get install libcanberra-gtk-module
 ```
 
 <!-- 
