@@ -335,11 +335,13 @@ Welcome React-Electron project!
 const {app, BrowserWindow, Tray, nativeImage} = require('electron')
 const path = require('path')
 
+const mainWindow = undefined;;
+//const tray = undefined;
 //app.dock.hide();
 
 function createWindow () {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 300,
     height: 600,
     //-----tray----- start
@@ -350,6 +352,7 @@ function createWindow () {
     transparent: false,
     //-----tray----- end
     webPreferences: {
+      backgroundThrottling: false
     }
   })
 
@@ -373,10 +376,9 @@ function createWindow () {
 const createTray = () => {
   const icon = path.join(__dirname, 'assets', 'tray.png')
   const nimage = nativeImage.createFromPath(icon)
-  //tray is a app variable 
+  //tray is a app variable
   tray = new Tray(nimage)
   tray.on('click', (event)=>toggleWindow())
-  tray.on('blur', (event)=>toggleWindow())
 }
 
 const toggleWindow = () => {
@@ -392,6 +394,7 @@ const showWindow = () => {
 const getWindowPosition = () => {
   const windowBounds = mainWindow.getBounds();
   const trayBounds = tray.getBounds();
+  
   // Center window horizontally below the tray icon
   const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2))    
   // Position window 4 pixels vertically below the tray icon
@@ -399,7 +402,6 @@ const getWindowPosition = () => {
   return {x:x,y:y}
 }
 //-----tray----- end
-
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
