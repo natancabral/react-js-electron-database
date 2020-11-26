@@ -326,6 +326,47 @@ Welcome React-Electron project!
 
 ## Sqlite3
 
+<!--
+git clone https://github.com/electron/electron-quick-start electron-sqlite3
+-->
+<!--
+
+# Then add one of the following (adding a --save) flag:
+
+* $ npm install pg --save
+* $ npm install sqlite3 --save
+* $ npm install mysql --save
+* $ npm install mysql2 --save
+* $ npm install oracledb --save
+* $ npm install mssql --save
+
+$ npm install knex --save
+npm install sqlite3 --save
+npm install node-pre-gyp
+npm install electron-rebuild --save-dev
+npm install electron-build --save-dev
+npm install electron-builder --save-dev
+npm audit fix
+
+npm run postinstall
+npm run rebuild
+
+package.json
+
+"scripts": {
+  ...
+  "postinstall": "electron-builder install-app-deps",
+  "rebuild": "electron-rebuild -f -w sqlite3"
+}
+
+Error:
+An unhandled error occurred inside electron-rebuildnode-gyp failed to rebuild
+Solution:
+sudo npm install -g node-gyp --overwrite --force
+npm config set python /usr/bin/python2.7 
+npm install
+-->
+
 ----
 # AppTray Window
 
