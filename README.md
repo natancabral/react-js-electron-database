@@ -366,13 +366,14 @@ $ sudo npm install electron-rebuild node-gyp --overwrite --force
 //----- experimental
 //----- experimental
 $ npm i node-gyp@latest
-$ npm i -g node-gyp@latest && npm config set node_gyp "/usr/local/lib/node_modules/node-gyp/bin/node-gyp.js"
+$ sudo npm i -g node-gyp@latest && npm config set node_gyp "/usr/local/lib/node_modules/node-gyp/bin/node-gyp.js"
 //----- experimental
 //----- fix error
 $ sudo node-gyp rebuild -g
 $ sudo npm install nw-gyp -gudo npm install sqlite3 --build-from-source --runtime=node-webkit --target_arch=ia32 --allow-root --unsafe-perm=true
 $ sudo npm i web-kit -g --allow-root --unsafe-perm=true
 $ npm run rebuild
+$ npm i prebuild-install || npm run build-release
 //----- fix error
 // If Show Ubuntu/Mac Error :END --------------------------------------------------------------------------
 // If Show Ubuntu/Mac Error :END --------------------------------------------------------------------------
@@ -387,7 +388,7 @@ $ npm audit fix # fix vulnerabilities
 // Ubuntu Error --------------------------------------------------------------------------
 // Ubuntu Error --------------------------------------------------------------------------
 An unhandled error occurred inside electron-rebuildnode-gyp failed to rebuild
-Solution:
+Solution 2:
 sudo npm install -g node-gyp --overwrite --force
 npm config set python /usr/bin/python2.7 
 npm install
