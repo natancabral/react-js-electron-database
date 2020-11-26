@@ -330,7 +330,8 @@ Welcome React-Electron project!
 git clone https://github.com/electron/electron-quick-start electron-sqlite3
 -->
 <!--
-
+simple
+https://stackoverflow.com/questions/32504307/how-to-use-sqlite3-module-with-electron
 # Then add one of the following (adding a --save) flag:
 
 * $ npm install pg --save
@@ -340,24 +341,41 @@ git clone https://github.com/electron/electron-quick-start electron-sqlite3
 * $ npm install oracledb --save
 * $ npm install mssql --save
 
+Sequence
 $ npm install knex --save
-npm install sqlite3 --save
-npm install node-pre-gyp
-npm install electron-rebuild --save-dev
-npm install electron-build --save-dev
-npm install electron-builder --save-dev
-npm audit fix
-
-npm run postinstall
-npm run rebuild
+$ npm install sqlite3 --save
+$ npm install node-pre-gyp
+$ npm install electron-rebuild --save-dev
+$ npm install electron-build --save-dev
+$ npm install electron-builder --save-dev
+$ npm audit fix
 
 package.json
-
 "scripts": {
   ...
   "postinstall": "electron-builder install-app-deps",
   "rebuild": "electron-rebuild -f -w sqlite3"
 }
+
+$ npm run postinstall
+$ npm run rebuild
+$ npm run install
+$ npm audit fix
+//----- experimental
+$ sudo npm install electron-rebuildnode-gyp --overwrite --force
+//----- experimental
+//----- experimental
+$ npm i node-gyp@latest
+$ npm i -g node-gyp@latest && npm config set node_gyp "/usr/local/lib/node_modules/node-gyp/bin/node-gyp.js"
+//----- experimental
+//----- fix error
+$ sudo node-gyp rebuild -g
+$ sudo npm install nw-gyp -gudo npm install sqlite3 --build-from-source --runtime=node-webkit --target_arch=ia32 --allow-root --unsafe-perm=true
+$ sudo npm i web-kit -g --allow-root --unsafe-perm=true
+$ npm run rebuild
+//----- fix error
+$ npm run postinstall
+
 
 Error:
 An unhandled error occurred inside electron-rebuildnode-gyp failed to rebuild
