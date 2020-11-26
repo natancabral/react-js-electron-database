@@ -184,7 +184,7 @@ $ npm i @babel/plugin-proposal-class-properties
 When it runs, it looks for its configuration in a file named .babelrc, so create in on the root and add:
 ```json
 { 
-  "presets": ["@babel/preset-env", "@babel/preset-react"]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": ["@babel/plugin-proposal-class-properties"]
 }
 ```
