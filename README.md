@@ -335,8 +335,8 @@ Welcome React-Electron project!
 const {app, BrowserWindow, Tray, nativeImage} = require('electron')
 const path = require('path')
 
-const mainWindow = undefined;;
-//const tray = undefined;
+let mainWindow = undefined;;
+let tray = undefined;
 //app.dock.hide();
 
 function createWindow () {
