@@ -334,6 +334,10 @@ simple
 https://stackoverflow.com/questions/32504307/how-to-use-sqlite3-module-with-electron
 # Then add one of the following (adding a --save) flag:
 
+git clone https://github.com/electron/electron-quick-start electron-sqlite3b
+cd electron-sqlite3b
+npm install
+
 Sequence
 $ npm install knex --save
 $ npm install sqlite3 --save
@@ -346,18 +350,19 @@ $ npm audit fix
 package.json
 "scripts": {
   ...
-  "postinstall": "electron-builder install-app-deps",
-  "rebuild": "electron-rebuild -f -w sqlite3"
+    "postinstall": "install-app-deps",
+    "postinstall:e": "electron-builder install-app-deps",
+    "rebuild": "electron-rebuild -f -w sqlite3"
 }
 
 $ npm run postinstall
 $ npm run rebuild
 $ npm run install
 $ npm audit fix
-// Ubuntu Error --------------------------------------------------------------------------
-// Ubuntu Error --------------------------------------------------------------------------
+// If Show Ubuntu/Mac Error :START --------------------------------------------------------------------------
+// If Show Ubuntu/Mac Error :START --------------------------------------------------------------------------
 //----- experimental
-$ sudo npm install electron-rebuildnode-gyp --overwrite --force
+$ sudo npm install electron-rebuild node-gyp --overwrite --force
 //----- experimental
 //----- experimental
 $ npm i node-gyp@latest
@@ -369,10 +374,15 @@ $ sudo npm install nw-gyp -gudo npm install sqlite3 --build-from-source --runtim
 $ sudo npm i web-kit -g --allow-root --unsafe-perm=true
 $ npm run rebuild
 //----- fix error
-// Ubuntu Error --------------------------------------------------------------------------
-// Ubuntu Error --------------------------------------------------------------------------
+// If Show Ubuntu/Mac Error :END --------------------------------------------------------------------------
+// If Show Ubuntu/Mac Error :END --------------------------------------------------------------------------
 $ npm run postinstall
 
+Copy databse sample:
+Copy code:
+
+$ npm install sqlite3 --save
+$ npm audit fix # fix vulnerabilities
 
 // Ubuntu Error --------------------------------------------------------------------------
 // Ubuntu Error --------------------------------------------------------------------------
