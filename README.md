@@ -334,13 +334,6 @@ simple
 https://stackoverflow.com/questions/32504307/how-to-use-sqlite3-module-with-electron
 # Then add one of the following (adding a --save) flag:
 
-* $ npm install pg --save
-* $ npm install sqlite3 --save
-* $ npm install mysql --save
-* $ npm install mysql2 --save
-* $ npm install oracledb --save
-* $ npm install mssql --save
-
 Sequence
 $ npm install knex --save
 $ npm install sqlite3 --save
@@ -361,6 +354,8 @@ $ npm run postinstall
 $ npm run rebuild
 $ npm run install
 $ npm audit fix
+// Ubuntu Error --------------------------------------------------------------------------
+// Ubuntu Error --------------------------------------------------------------------------
 //----- experimental
 $ sudo npm install electron-rebuildnode-gyp --overwrite --force
 //----- experimental
@@ -374,10 +369,13 @@ $ sudo npm install nw-gyp -gudo npm install sqlite3 --build-from-source --runtim
 $ sudo npm i web-kit -g --allow-root --unsafe-perm=true
 $ npm run rebuild
 //----- fix error
+// Ubuntu Error --------------------------------------------------------------------------
+// Ubuntu Error --------------------------------------------------------------------------
 $ npm run postinstall
 
 
-Error:
+// Ubuntu Error --------------------------------------------------------------------------
+// Ubuntu Error --------------------------------------------------------------------------
 An unhandled error occurred inside electron-rebuildnode-gyp failed to rebuild
 Solution:
 sudo npm install -g node-gyp --overwrite --force
