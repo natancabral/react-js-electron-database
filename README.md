@@ -542,7 +542,7 @@ $ npm install electron-packager --save-dev
 #### Shotcut to create App 
 * en: Open **package.json** and insert inside on scripts:
 ```json
-scripts: {
+"scripts": {
 ...
 "packager:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
 "packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
