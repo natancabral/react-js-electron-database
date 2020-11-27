@@ -539,19 +539,11 @@ gulp.task('release', gulp.series('build', () => {
 ```bash
 $ npm install electron-packager --save-dev
 ```
-#### Create App OS files
-```bash
-# windows
-$ electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds
-# Linux
-$ electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds
-# Mac
-$ electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds
-```
 #### Shotcut to create App 
 * en: Open **package.json** and insert inside on scripts:
 ```json
 scripts: {
+...
 "packager:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
 "packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
 "packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
@@ -566,7 +558,14 @@ scripts: {
 "packager:sign-exe": "signcode './release-builds/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 "packager:installer": "node ./script/installer.js",
 "packager:sign-installer": "signcode './release-builds/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
+...
 }
+```
+#### Create binary app
+```bash
+$ npm run packager:win:1
+$ npm run packager:mac:1
+$ npm run packager:linux:1
 ```
 ----
 # Others
