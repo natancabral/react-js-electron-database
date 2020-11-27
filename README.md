@@ -64,7 +64,7 @@ function createWindow () {
     }
   })
 
-  win.loadFile('index.html')
+  win.loadFile('src/index.html')
   //win.loadURL('http://127.0.0.1:3000')
   //win.webContents.openDevTools()
 }
@@ -84,7 +84,8 @@ app.on('activate', () => {
 })
 ```
 
-#### index.html file
+#### /src/index.html file
+ I will create a **src/** folder and **index.html** file:
 ```html
 <!DOCTYPE html>
 <html>
@@ -95,8 +96,9 @@ app.on('activate', () => {
   </head>
   <body>
     <h1>React-js + Electron + Sqlite3</h1>
-    <div id="app">
-    </div>
+    <!-- you need only one or app, or root -->
+    <div id="app"></div>
+    <div id="root"></div>
     <script src="./index.js"></script>
   </body>
 </html>
@@ -110,7 +112,6 @@ $ npm install react react-dom
 ```bash
 $ npm run electron
 ```
-
 ## Begin with: Electron
 Second option begin with Electron
 #### Clone electron-quick-start project
@@ -127,7 +128,7 @@ $ npm install react react-dom
 ```
 #### Files
 * I will create a **src/** folder 
-* and move **index.html** and **renderer.js**, 
+* and move to inside **index.html** and **renderer.js**, 
 * renamed as **renderer.js** to **index.js**.
 * I will create an **index.css** and link it to the html. Finally, add an **app** container div.
 * Replace **index.html** file:
@@ -141,8 +142,9 @@ $ npm install react react-dom
   </head>
   <body>
     <h1>React-js + Electron + Sqlite3</h1>
-    <div id="app">
-    </div>
+    <!-- you need only one or app, or root -->
+    <div id="app"></div>
+    <div id="root"></div>
     <script src="./index.js"></script>
   </body>
 </html>
@@ -150,12 +152,12 @@ $ npm install react react-dom
 #### Change main.js file
 With a small change to **main.js** so that it points to the correct file:
 ```js
-.loadFile(path.join(__dirname, 'index.html'))
+.loadFile(path.join(__dirname, 'src', 'index.html'))
 ```
 and **preload.js** to **index.js**
 ```js
 webPreferences: {
-  preload: path.join(__dirname, 'index.js')
+  preload: path.join(__dirname, 'src', 'index.js')
 }
 ```
 #### index.js
@@ -276,6 +278,13 @@ And this:
     "release": "gulp release"
 }
 ```
+#### Edit main.js file
+Insert/change this:
+```bash
+// find .loadFile(
+.loadFile('app/index.html')
+```
+
 #### CSS error
 Babel cant import css files in js or jsx.
 > **import './style.css'** show error
