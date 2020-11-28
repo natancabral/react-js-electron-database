@@ -14,7 +14,8 @@ function createWindow () {
     }
   })
 
-  win.loadFile('index.html')
+  win.loadFile('app/index.html')
+  //win.loadURL('http://127.0.0.1:3000')
   //win.webContents.openDevTools()
 }
 

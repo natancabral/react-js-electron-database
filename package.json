@@ -1,0 +1,73 @@
+{
+  "name": "react-js-electron-sqlite3",
+  "version": "0.1.0",
+  "private": true,
+  "repository": "https://github.com/natancabral/react-js-electron-sqlite3.git",
+  "author": "Natan Cabral",
+
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-livereload": "^4.0.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "main": "app/main.js",
+  "scripts": {
+    "packager:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
+    "packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
+    "packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
+    "electron": "electron .",
+    "start": "gulp",
+    "delete:all": "rm -r ./app",
+    "postinstall": "install-app-deps",
+    "build": "gulp build",
+    "test": "gulp test",
+    "release": "gulp release"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "electron": "^11.0.3",
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^15.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1"
+  },
+  "build": {
+    "appId": "com.natancabral.reactjselectronsqlite",
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "publish": null
+  }
+
+}
