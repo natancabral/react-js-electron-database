@@ -283,7 +283,7 @@ Insert/change this:
 ```js
 // find .loadFile( 
 // change to
-.loadFile(path.join(__dirname, 'index.html'))
+.loadFile(path.join(__dirname, 'app', 'index.html'))
 // or 
 .loadFile('app/index.html')
 ```
