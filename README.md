@@ -8,7 +8,7 @@
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (need nodejs installed to run)
 * Database
   * Sqlite3 (todo)
-* AppTray Window
+* [AppTray Window](#apptray-window)
   * Tray + NativeImage (todo)
 * Packaging App
   * [Electron Builder](#electron-builder)
