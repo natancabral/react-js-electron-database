@@ -282,7 +282,7 @@ And this:
 Insert/change this:
 ```bash
 // find .loadFile(
-.loadFile('app/index.html')
+.loadFile('index.html')
 ```
 
 #### CSS error
