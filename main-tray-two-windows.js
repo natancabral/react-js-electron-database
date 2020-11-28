@@ -50,7 +50,7 @@ function createWindowTray () {
   })
 
   // w.loadFile('index.html')
-  w.loadFile(path.join(__dirname, 'index.html'))
+  w.loadFile(path.join(__dirname, 'app', 'index.html'))
   // Open the DevTools.
   // w.webContents.openDevTools()
 
@@ -76,7 +76,7 @@ const createTray = () => {
 
 const toggleWindow = () => {
   // mainWindow.loadFile('index.html')
-  w.loadFile(path.join(__dirname, 'index.html'))
+  w.loadFile(path.join(__dirname, 'app', 'index.html'))
   //w.show();
   w.isVisible() ? w.hide() : showWindow(); 
 }
