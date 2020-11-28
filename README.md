@@ -1,5 +1,4 @@
 # React-js + Electron + Sqlite3
-
 * Create project
   * Begin with: [React](#begin-with-react)
   * Begin with: [Electron](#begin-with-electron)
@@ -19,6 +18,12 @@
 * [Error](#error)
 
 ----
+#### 
+````bash
+git clone https://github.com/natancabral/react-js-electron-sqlite3.git react-js-electron-sqlite3
+cd react-js-electron-sqlite3
+npm install
+```
 # Create Project
 
 ## Begin with: React
