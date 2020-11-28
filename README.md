@@ -422,7 +422,7 @@ function createWindow () {
     width: 300,
     height: 600,
     //-----tray----- start
-    show: true,
+    show: true, //set this false
     frame: false,
     fullscreen: false,
     resizable: false,
@@ -521,13 +521,6 @@ app.on('window-all-closed', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ```
-
-#### Edit package.json file
-Insert/change this:
-```json
-"main": "app/main-tray.js",
-```
-
 ----
 # Packaging App
 
