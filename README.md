@@ -224,7 +224,7 @@ gulp.task('css', () => {
 
 //3. Compile JS and JSX files and move them to the app folder
 gulp.task('js*', () => {
-    return gulp.src(['main.js', 'src/**/*.js*'])
+    return gulp.src(['main*.js', 'src/**/*.js*'])
          .pipe(babel())
          .pipe(gulp.dest('app/'))
          .pipe(livereload());
@@ -524,6 +524,13 @@ app.on('window-all-closed', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ```
+#### Edit package.json file
+Insert/change this:
+```json
+"main": "app/main-tray.js",
+```
+* [sample1](src/main-tray.js) 
+* [sample2](src/main-tray-two-windows.js)
 ----
 # Packaging App
 
