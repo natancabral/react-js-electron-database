@@ -20,7 +20,7 @@ gulp.task('css', () => {
 
 //3. Compile JS and JSX files and move them to the app folder
 gulp.task('js*', () => {
-    return gulp.src(['main.js', 'src/**/*.js*'])
+    return gulp.src(['main*.js', 'src/**/*.js*'])
          .pipe(babel())
          .pipe(gulp.dest('app/'))
          .pipe(livereload());
