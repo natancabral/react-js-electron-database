@@ -281,8 +281,11 @@ And this:
 #### Edit main.js file
 Insert/change this:
 ```bash
-// find .loadFile(
-.loadFile('index.html')
+// find .loadFile( 
+// change to
+.loadFile(path.join(__dirname, 'index.html'))
+// or 
+.loadFile('app/index.html')
 ```
 
 #### CSS error
