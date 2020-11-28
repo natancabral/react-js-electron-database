@@ -280,7 +280,7 @@ And this:
 ```
 #### Edit main.js file
 Insert/change this:
-```bash
+```js
 // find .loadFile( 
 // change to
 .loadFile(path.join(__dirname, 'index.html'))
@@ -529,8 +529,8 @@ Insert/change this:
 ```json
 "main": "app/main-tray.js",
 ```
-* [sample1](src/main-tray.js) 
-* [sample2](src/main-tray-two-windows.js)
+* [sample1](main-tray.js) 
+* [sample2](main-tray-two-windows.js)
 ----
 # Packaging App
 
