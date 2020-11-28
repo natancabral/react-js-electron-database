@@ -4,6 +4,7 @@
 git clone https://github.com/natancabral/react-js-electron-sqlite3.git react-js-electron-sqlite3
 cd react-js-electron-sqlite3
 npm install
+npm run start
 ```
 #### Make yourself
 * Create project
