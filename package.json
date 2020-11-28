@@ -4,7 +4,6 @@
   "private": true,
   "repository": "https://github.com/natancabral/react-js-electron-sqlite3.git",
   "author": "Natan Cabral",
-
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@testing-library/jest-dom": "^5.11.6",
@@ -69,5 +68,4 @@
     ],
     "publish": null
   }
-
 }
