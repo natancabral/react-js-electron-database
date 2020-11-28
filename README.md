@@ -409,7 +409,7 @@ npm install
 ## Tray + NativeImage
 * en: Change main.js to this:
 ```js
-const {app, BrowserWindow, Tray, nativeImage} = require('electron')
+const {app, BrowserWindow, Tray, nativeImage, screen } = require('electron')
 const path = require('path')
 
 let mainWindow = undefined;;
@@ -464,18 +464,34 @@ const toggleWindow = () => {
 
 const showWindow = () => {
   const position = getWindowPosition();
-  mainWindow.setPosition(position.x,position.y);
+  mainWindow.setPosition(position.x,position.y, false);
   mainWindow.show();
 }
 
 const getWindowPosition = () => {
+
+  //console.log(process.platform);
+  //'aix'
+  //'darwin'
+  //'freebsd'
+  //'linux'
+  //'openbsd'
+  //'sunos'
+  //'win32'
+
+  const { screenWidth, screenHeight } = screen.getPrimaryDisplay().workAreaSize;
   const windowBounds = mainWindow.getBounds();
-  const trayBounds = tray.getBounds();  
+  const trayBounds = tray.getBounds(); 
   // Center window horizontally below the tray icon
-  const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2))    
+  const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2));
+  let y = undefined;
   // Position window 4 pixels vertically below the tray icon
-  const y = Math.round(trayBounds.y + trayBounds.height + 4)    
-  return {x:x,y:y}
+  if(process.platform == 'win32')
+	y = Math.round(trayBounds.y - (windowBounds.height))
+  else
+    y = Math.round(trayBounds.y + trayBounds.height + 4)
+
+  return {x,y}
 }
 //-----tray----- end
 
