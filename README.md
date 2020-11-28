@@ -407,7 +407,7 @@ npm install
 # AppTray Window
 
 ## Tray + NativeImage
-* en: Change main.js to this:
+* en: I will create a **main-tray.js** file:
 ```js
 const {app, BrowserWindow, Tray, nativeImage, screen } = require('electron')
 const path = require('path')
@@ -487,9 +487,9 @@ const getWindowPosition = () => {
   let y = undefined;
   // Position window 4 pixels vertically below the tray icon
   if(process.platform == 'win32')
-	y = Math.round(trayBounds.y - (windowBounds.height))
+    y = Math.round(trayBounds.y - windowBounds.height);
   else
-    y = Math.round(trayBounds.y + trayBounds.height + 4)
+    y = Math.round(trayBounds.y + trayBounds.height + 4);
 
   return {x,y}
 }
@@ -521,6 +521,13 @@ app.on('window-all-closed', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ```
+
+#### Edit package.json file
+Insert/change this:
+```json
+"main": "app/main-tray.js",
+```
+
 ----
 # Packaging App
 
