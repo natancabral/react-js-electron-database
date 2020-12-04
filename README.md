@@ -276,6 +276,7 @@ And this:
 ```json
 "scripts": {
     "electron": "electron .",
+    "dev": "start",
     "start": "gulp",
     "delete:all": "rm -r ./app",
     "postinstall": "install-app-deps",
