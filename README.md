@@ -558,23 +558,40 @@ We need to point the tool to the folder with the code to be compiled through the
   "publish": null
 }
 ```
+```json 
+"builder": {
+  "appId": "com.natancabral.builder",
+  "productName": "Product Name",
+  "publish": null,
+  "directory": {
+    "output": "out-builder"
+  },
+  "win": {
+    "target": "nsis",
+    "icon": "assets/ico/icon48.ico"
+  },
+  "target": "nsis",
+  "nsis": {
+    "allowToChangeInstallationDirectory": true,
+    "oneClick": false
+  }
+}
+```
 And inside scritps.
 ```json 
   "scripts": {
     ...
-    "build:pack": "electron-builder --dir",
-    "build:dist": "electron-builder",
+    "build:dist:1": "build",
+    "build:dist:2": "electron-builder",
     "build:postinstall": "electron-builder install-app-deps",
   }
 ``` 
-Update **.gulpfile** :
-```js
-gulp.task('release', gulp.series('build', () => {
-    return exec(
-        __dirname+'/node_modules/.bin/electron-builder .'
-    ).on('close', () => process.exit());
-}));
-``` 
+Plus info.
+```json 
+"version": "1.0.0"
+"author": "",
+"license": "MIT",
+```
 
 ## Electron Packager
 * en: Install [electron-packager](https://github.com/electron/electron-packager/)
