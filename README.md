@@ -583,6 +583,7 @@ And inside scritps.
     ...
     "build:dist:1": "build",
     "build:dist:2": "electron-builder",
+    "build:dist:3": "electron-builder --dir",
     "build:postinstall": "electron-builder install-app-deps",
   }
 ``` 
@@ -590,7 +591,9 @@ Plus info.
 ```json 
 "version": "1.0.0"
 "author": "",
-"license": "MIT",
+"description": "",
+"license": "",
+"private": true,
 ```
 
 ## Electron Packager
