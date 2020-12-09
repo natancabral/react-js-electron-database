@@ -548,34 +548,32 @@ $ npm i electron-builder --save-dev
 ```
 We need to point the tool to the folder with the code to be compiled through the **package.json** by adding:
 ```json 
-"build": {
-  "appId": "com.natancabral.react-js-electron-sqlite3",
-  "files": [
-    "app/**/*",
-    "node_modules/**/*",
-    "package.json"
-  ],
-  "publish": null
-}
-```
-```json 
-"builder": {
-  "appId": "com.natancabral.builder",
-  "productName": "Product Name",
-  "publish": null,
-  "directory": {
-    "output": "out-builder"
-  },
-  "win": {
-    "target": "nsis",
-    "icon": "assets/ico/icon48.ico"
-  },
-  "target": "nsis",
-  "nsis": {
-    "allowToChangeInstallationDirectory": true,
-    "oneClick": false
+  "build": {
+    "extends": null,
+    "publish": null,
+    "appId": "com.natancabral.react-js-electron-sqlite3",
+    "productName": "Product Name",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/ico/icon48.ico"
+    },
+    "directories": {
+      "buildResources": "public"
+    },
+    "files": [
+      "app/*",
+      "app/**/*",
+      "dist/**/*",
+      "package.json",
+      "node_modules/**/*",
+      "public/*",
+      {
+        "from":"src",
+        "to":"build",
+        "filter":"**/*"
+      }
+    ]
   }
-}
 ```
 And inside scritps.
 ```json 
