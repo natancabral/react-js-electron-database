@@ -579,9 +579,8 @@ And inside scritps.
 ```json 
   "scripts": {
     ...
-    "build:dist:1": "build",
-    "build:dist:2": "electron-builder",
-    "build:dist:3": "electron-builder --dir",
+    "build:dist:1": "electron-builder",
+    "build:dist:2": "electron-builder --dir",
     "build:postinstall": "electron-builder install-app-deps",
   }
 ``` 
