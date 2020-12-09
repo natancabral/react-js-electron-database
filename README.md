@@ -552,7 +552,7 @@ We need to point the tool to the folder with the code to be compiled through the
     "extends": null,
     "publish": null,
     "appId": "com.natancabral.react-js-electron-sqlite3",
-    "productName": "Product Name",
+    "productName": "ProductNameExecFile",
     "win": {
       "target": "nsis",
       "icon": "assets/ico/icon48.ico"
