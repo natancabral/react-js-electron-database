@@ -19,8 +19,11 @@
   "main": "app/main.js",
   "scripts": {
     "packager:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
-    "packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
-    "packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
+    "packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/icons/win/app.ico",
+    "packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
+    "build:dist:1": "electron-builder",
+    "build:dist:2": "electron-builder --dir",
+    "build:postinstall": "electron-builder install-app-deps",
     "electron": "electron .",
     "start": "gulp",
     "delete:all": "rm -r ./app",
@@ -60,12 +63,29 @@
     "gulp-concat": "^2.6.1"
   },
   "build": {
-    "appId": "com.natancabral.reactjselectronsqlite",
+    "extends": null,
+    "publish": null,
+    "appId": "com.natancabral.react-js-electron-sqlite3",
+    "productName": "React js Electron Sqlite3",
+    "win": {
+      "target": "nsis",
+      "icon": "./app/assets/ico/icon48.ico"
+    },
+    "directories": {
+      "buildResources": "public"
+    },
     "files": [
+      "app/*",
       "app/**/*",
+      "dist/**/*",
+      "package.json",
       "node_modules/**/*",
-      "package.json"
-    ],
-    "publish": null
+      "public/*",
+      {
+        "from":"src",
+        "to":"build",
+        "filter":"**/*"
+      }
+    ]
   }
 }
