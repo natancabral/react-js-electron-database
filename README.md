@@ -461,7 +461,7 @@ function createWindow () {
 
 //-----tray----- start
 const createTray = () => {
-  const icon = path.join(__dirname, 'assets', 'tray.png')
+  const icon = path.join(__dirname, 'app', 'assets', 'tray.png')
   const nimage = nativeImage.createFromPath(icon)
   //tray is a app variable
   tray = new Tray(nimage)
@@ -555,7 +555,7 @@ We need to point the tool to the folder with the code to be compiled through the
     "productName": "ProductNameExecFile",
     "win": {
       "target": "nsis",
-      "icon": "assets/ico/icon48.ico"
+      "icon": "./app/assets/ico/icon48.ico"
     },
     "directories": {
       "buildResources": "public"
@@ -604,15 +604,15 @@ $ npm install electron-packager --save-dev
 "scripts": {
 ...
 "packager:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
-"packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/app.ico",
-"packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
+"packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/icons/win/app.ico",
+"packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/icons/win/icon.ico --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"React Electron Sqlite\"",
 
 "packager:mac:1": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds",
-"packager:mac:2": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds --icon=assets/icons/mac/icon.icns --prune=true",
-"packager:mac:3": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds --icon=assets/icons/mac/app.icns --osx-sign.identity='React Electron Sqlite' --extend-info=assets/mac/info.plist",
+"packager:mac:2": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds --icon=./app/assets/icons/mac/icon.icns --prune=true",
+"packager:mac:3": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=release-builds --icon=./app/assets/icons/mac/app.icns --osx-sign.identity='React Electron Sqlite' --extend-info=assets/mac/info.plist",
 
 "packager:linux:1": "electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds",
-"packager:linux:2": "electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds --icon=assets/icons/png/1024x1024.png --prune=true",
+"packager:linux:2": "electron-packager . --overwrite --platform=linux --arch=x64 --out=release-builds --icon=./app/assets/icons/png/1024x1024.png --prune=true",
 
 "packager:sign-exe": "signcode './release-builds/Electron API Demos-win32-ia32/Electron API Demos.exe' --cert ~/electron-api-demos.p12 --prompt --name 'React Electron Sqlite' --url 'http://electron.atom.io'",
 "packager:installer": "node ./script/installer.js",
