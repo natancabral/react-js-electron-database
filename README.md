@@ -549,29 +549,34 @@ $ npm i electron-builder --save-dev
 We need to point the tool to the folder with the code to be compiled through the **package.json** by adding:
 ```json 
   "build": {
+    "asar": true,
     "extends": null,
     "publish": null,
     "appId": "com.natancabral.react-js-electron-sqlite3",
-    "productName": "ProductNameExecFile",
+    "compression": "maximum",
+    "productName": "File Name App",
+    "nsis": {
+      "shortcutName": "App Name Shortcut",
+      "installerIcon": "./app/assets/ico/icon48.ico",
+      "oneClick": true,
+      "perMachine": true,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "allowToChangeInstallationDirectory": false
+    },
     "win": {
       "target": "nsis",
       "icon": "./app/assets/ico/icon48.ico"
     },
     "directories": {
-      "buildResources": "public"
+      "buildResources": "./app",
+      "output": "dist"
     },
     "files": [
-      "app/*",
-      "app/**/*",
-      "dist/**/*",
       "package.json",
-      "node_modules/**/*",
-      "public/*",
-      {
-        "from":"src",
-        "to":"build",
-        "filter":"**/*"
-      }
+      "app/**/*"
     ]
   }
 ```
