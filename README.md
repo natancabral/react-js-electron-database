@@ -365,8 +365,8 @@ With a small change to **app.js**, inside App() :
   // function connection mysql remote
   const connection = () => {
     let c = mysql.createConnection({    
-      host     : '888.88.88.88', //:3306
-      host     : 'localhost', //:3306
+      //host     : '888.88.88.88', //:3306
+      host     : 'localhost',
       user     : 'root',
       password : '',
       database : 'databasename'
@@ -378,7 +378,6 @@ With a small change to **app.js**, inside App() :
           return console.log(err.code, err.fatal, err.stack);
       }
       return console.log('Connection successfully established');
-      
     });
     setConn(c);
   }
