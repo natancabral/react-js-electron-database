@@ -384,7 +384,6 @@ With a small change to **app.js**, inside App() :
 
   // function query/search
   const query = () => {
-
     let sql = 'SELECT `name`,`id` FROM `tablename` where id > 0  limit 0,50 ';
     conn.query(sql, function (error, results, fields) {
       if (error) {
@@ -403,7 +402,6 @@ With a small change to **app.js**, inside App() :
      connection.end(function(){
         // The connection has been closed
      });
-     
   }
 ```
 
