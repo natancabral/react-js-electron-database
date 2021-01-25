@@ -19,7 +19,7 @@ function App() {
     c.connect((err) => {
       // in case of error
       if(err){
-          alert( err.code + "\n" + err.fatal + "\n" + err.stack );
+          alert( err.code );
           return console.log(err.code, err.fatal, err.stack);
       }
       return console.log('Connection successfully established');
