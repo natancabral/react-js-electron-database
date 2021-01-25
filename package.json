@@ -1,9 +1,13 @@
 {
-  "name": "react-js-electron-sqlite3",
+  "name": "react-js-electron-database",
+  "description": "...",
   "version": "0.1.0",
   "private": true,
-  "repository": "https://github.com/natancabral/react-js-electron-sqlite3.git",
-  "author": "Natan Cabral",
+  "repository": "https://github.com/natancabral/react-js-electron-database.git",
+  "author": {
+    "name": "Natan Cabral",
+    "email": "natancabral@hotmail.com"
+  },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@testing-library/jest-dom": "^5.11.6",

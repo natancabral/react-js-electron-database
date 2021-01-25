@@ -1,0 +1,150 @@
+{
+  "name": "react-js-electron-sqlite3",
+  "description": "...",
+  "version": "0.1.0",
+  "private": true,
+  "repository": "https://github.com/natancabral/react-js-electron-database.git",
+  "author": {
+    "name": "Natan Cabral",
+    "email": "natancabral@hotmail.com"
+  },
+  "homepage": "https://www.gnnc.com.br",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-livereload": "^4.0.2",
+    "mysql": "^2.18.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4",
+    "mysql": "^2.18.1"
+  },
+  "main": "app/main.js",
+  "scripts": {
+    "packager:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
+    "packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/ico/icon48.png",
+    "packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/ico/icon48.png --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Catálogo Valpec\"",
+    "build:dist:1": "electron-builder",
+    "build:dist:win": "electron-builder --win",
+    "build:dist:2": "electron-builder --dir",
+    "build:dist:all": "electron-builder -mwl",
+    "build:postinstall": "electron-builder install-app-deps",
+    "electron": "electron .",
+    "r": "react-scripts start",
+    "start": "gulp",
+    "delete:app": "rm -rf ./app",
+    "delete:dist": "rm -rf ./dist",
+    "delete:all": "rm -rf ./app && rm -rf ./dist",
+    "postinstall": "install-app-deps",
+    "build": "gulp build",
+    "test": "gulp test",
+    "release": "gulp release"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "electron": "^11.0.3",
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^15.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1"
+  },
+  "build-no-used": {
+    "asarUnpack": "**/assets/*"
+  },
+  "build": {
+    "asar": true,
+    "extends": null,
+    "publish": null,
+    "appId": "com.natancabral.package",
+    "compression": "maximum",
+    "productName": "Package Name",
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ],
+      "icon": "./app/assets/ico/icon48.ico",
+      "certificateFile": "./../file.pfx",
+      "certificatePassword": "password",
+      "legalTrademarks": "(c) 2020 gnnc.com.br"
+    },
+    "nsis": {
+      "shortcutName": "Package Shortcut Name",
+      "artifactName": "Setup ${productName} v${version}.${ext}",
+      "installerIcon": "./app/assets/ico/icon48.ico",
+      "oneClick": true,
+      "perMachine": true,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": true,
+      "allowToChangeInstallationDirectory": false
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "./app/assets/ico/mac512.icns",
+      "category": "public.app-category.graphics-design"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "title": "MAC ${productName} ${version}",
+      "icon": "./app/assets/ico/mac512.icns"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "deb": {},
+    "directories": {
+      "buildResources": "./app",
+      "output": "dist-certificate-win"
+    },
+    "files": [
+      "package.json",
+      "app/**/*"
+    ]
+  }
+}
