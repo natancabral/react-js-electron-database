@@ -348,12 +348,12 @@ Welcome React-Electron project!
 
 Install package mysql
 ```bash
-$ mpm install mysql
+$ npm install mysql
 ```
 
-Import package mysql
+Import package mysql on file:
 ```js
-$ import mysql from 'mysql';
+import mysql from 'mysql';
 ```
 
 With a small change to **app.js**, inside App() :
