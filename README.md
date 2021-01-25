@@ -374,10 +374,11 @@ With a small change to **app.js**, inside App() :
     c.connect((err) => {
       // in case of error
       if(err){
-          alert( err.code + "\n" + err.fatal );
-          console.log(err.code);
-          console.log(err.fatal);
+          alert( err.code + "\n" + err.fatal + "\n" + err.stack );
+          return console.log(err.code, err.fatal, err.stack);
       }
+      return console.log('Connection successfully established');
+      
     });
     setConn(c);
   }
@@ -401,6 +402,7 @@ With a small change to **app.js**, inside App() :
      // Close the connection
      connection.end(function(){
         // The connection has been closed
+        console.log('Connection successfully closed');
      });
   }
 ```
