@@ -19,7 +19,7 @@ function App() {
     c.connect((err) => {
       // in case of error
       if(err){
-          alert( err.code + "\n" + err.fatal + "\n" + err.stack );
+          alert( err.code );
           return console.log(err.code, err.fatal, err.stack);
       }
       return console.log('Connection successfully established');
@@ -30,10 +30,10 @@ function App() {
   // function query/search
   const query = () => {
     let sql = 'SELECT `name`,`id` FROM `tablename` where id > 0  limit 0,50 ';
-    conn.query(sql, function (error, results, fields) {
-      if (error) {
-        alert(error.code);
-        console.log(error.code);
+    conn.query(sql, function (err, results, fields) {
+      if (err) {
+        alert(err.code);
+        console.log(err.code);
       }
       else {
         alert(results);
