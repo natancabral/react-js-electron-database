@@ -4,6 +4,7 @@
 git clone https://github.com/natancabral/react-js-electron-database.git react-js-electron-database
 cd react-js-electron-database
 npm install
+npm audit fix
 npm run start
 ```
 #### Make yourself
