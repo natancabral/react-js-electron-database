@@ -10,8 +10,8 @@ function App() {
   // function connection mysql remote
   const connection = () => {
     let c = mysql.createConnection({    
-      host     : '888.88.88.88', //:3306
-      host     : 'localhost', //:3306
+      //host     : '888.88.88.88', //:3306
+      host     : 'localhost',
       user     : 'root',
       password : '',
       database : 'databasename'
@@ -19,10 +19,10 @@ function App() {
     c.connect((err) => {
       // in case of error
       if(err){
-          alert( err.code + "\n" + err.fatal );
-          console.log(err.code);
-          console.log(err.fatal);
+          alert( err.code + "\n" + err.fatal + "\n" + err.stack );
+          return console.log(err.code, err.fatal, err.stack);
       }
+      return console.log('Connection successfully established');
     });
     setConn(c);
   }
