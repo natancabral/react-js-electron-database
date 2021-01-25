@@ -353,7 +353,7 @@ $ mpm install mysql
 
 Import package mysql
 ```js
-import mysql from 'mysql';
+$ import mysql from 'mysql';
 ```
 
 With a small change to **app.js**, inside App() :
@@ -406,7 +406,8 @@ With a small change to **app.js**, inside App() :
      
   }
 ```
-HTML/React/JSX
+
+Insert call buttons HTML/React/JSX:
 ```html
   <button onClick={()=>connection()}>Connection</button>
   <button onClick={()=>query()}>Query</button>
