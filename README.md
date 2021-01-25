@@ -4,6 +4,7 @@
 git clone https://github.com/natancabral/react-js-electron-database.git react-js-electron-database
 cd react-js-electron-database
 npm install
+npm audit fix
 npm run start
 ```
 #### Make yourself
@@ -351,12 +352,12 @@ Install package mysql
 $ npm install mysql
 ```
 
-Import package mysql on file:
+Import package mysql on component file:
 ```js
 import mysql from 'mysql';
 ```
 
-With a small change to **app.js**, inside App() :
+inside same component file:
 ```js
 
   // set connection variable
