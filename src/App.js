@@ -10,7 +10,7 @@ function App() {
           Click to connect database
         </p>
     
-        <button onClick={()=>connection()}>Connection mySql</button>
+        <button onClick={()=>connection()}>Connection MYSQL</button>
         <button onClick={()=>query()}>Query</button>
 
       </header>
