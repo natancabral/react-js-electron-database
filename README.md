@@ -1,8 +1,8 @@
-# React-js + Electron + Sqlite3 + MySql
+# React-js + Electron + Database
 #### Clone this project
 ```bash
-git clone https://github.com/natancabral/react-js-electron-sqlite3.git react-js-electron-sqlite3
-cd react-js-electron-sqlite3
+git clone https://github.com/natancabral/react-js-electron-database.git react-js-electron-database
+cd react-js-electron-database
 npm install
 npm run start
 ```
