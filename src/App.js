@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src="./assets/logo.svg" className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Click to connect database
         </p>
     
         <button onClick={()=>connection()}>Connection mySql</button>
