@@ -53,6 +53,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src="./assets/logo.svg" className="App-logo" alt="logo" />
+        <h2>React-js + Electron + Database</h2>
         <p>
           Click to connect database
         </p>
