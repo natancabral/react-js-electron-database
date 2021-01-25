@@ -16,7 +16,6 @@
     "@testing-library/user-event": "^12.2.2",
     "gulp-cli": "^2.3.0",
     "gulp-livereload": "^4.0.2",
-    "mysql": "^2.18.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -27,7 +26,7 @@
   "scripts": {
     "packager:win:1": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds",
     "packager:win:2": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/ico/icon48.png",
-    "packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/ico/icon48.png --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Catálogo Valpec\"",
+    "packager:win:3": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=release-builds --icon=./app/assets/ico/icon48.png --prune=true --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Catï¿½logo Valpec\"",
     "build:dist:1": "electron-builder",
     "build:dist:win": "electron-builder --win",
     "build:dist:2": "electron-builder --dir",
