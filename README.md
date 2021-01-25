@@ -1,4 +1,4 @@
-# React-js + Electron + Sqlite3
+# React-js + Electron + Sqlite3 + MySql
 #### Clone this project
 ```bash
 git clone https://github.com/natancabral/react-js-electron-sqlite3.git react-js-electron-sqlite3
@@ -14,6 +14,7 @@ npm run start
   * Working with: [Babel](#working-with-babel) | read: [css-error](#css-error)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (need nodejs installed to run)
 * Database
+  * MySql
   * Sqlite3 (todo)
 * [AppTray Window](#apptray-window)
   * Tray + NativeImage (todo)
@@ -342,6 +343,76 @@ Welcome React-Electron project!
 
 ----
 # Database
+
+## MySql
+
+Install package mysql
+```bash
+$ mpm install mysql
+```
+
+Import package mysql
+```js
+import mysql from 'mysql';
+```
+
+With a small change to **app.js**, inside App() :
+```js
+
+  // set connection variable
+  const [conn,setConn] = React.useState(undefined); 
+
+  // function connection mysql remote
+  const connection = () => {
+    let c = mysql.createConnection({    
+      host     : '888.88.88.88', //:3306
+      host     : 'localhost', //:3306
+      user     : 'root',
+      password : '',
+      database : 'databasename'
+    });
+    c.connect((err) => {
+      // in case of error
+      if(err){
+          alert( err.code + "\n" + err.fatal );
+          console.log(err.code);
+          console.log(err.fatal);
+      }
+    });
+    setConn(c);
+  }
+
+  // function query/search
+  const query = () => {
+
+    let sql = 'SELECT `name`,`id` FROM `tablename` where id > 0  limit 0,50 ';
+    conn.query(sql, function (error, results, fields) {
+      if (error) {
+        alert(error.code);
+        console.log(error.code);
+      }
+      else {
+        alert(results);
+        console.log(results);
+        if(results.length)
+           alert(results[0].id + results[0].name);
+      }
+     });
+     
+     // Close the connection
+     connection.end(function(){
+        // The connection has been closed
+     });
+     
+  }
+```
+HTML/React/JSX
+```html
+  <button onClick={()=>connection()}>Connection</button>
+  <button onClick={()=>query()}>Query</button>
+```
+
+
 
 ## Sqlite3
 
