@@ -15,7 +15,6 @@
     "@testing-library/user-event": "^12.2.2",
     "gulp-cli": "^2.3.0",
     "gulp-livereload": "^4.0.2",
-    "mysql": "^2.18.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -69,29 +68,70 @@
     "gulp-concat": "^2.6.1"
   },
   "build": {
+    "asar": true,
     "extends": null,
     "publish": null,
-    "appId": "com.natancabral.react-js-electron-sqlite3",
-    "productName": "React js Electron Sqlite3",
+    "appId": "com.natancabral.package",
+    "compression": "maximum",
+    "productName": "Package Name",
     "win": {
-      "target": "nsis",
-      "icon": "./app/assets/ico/icon48.ico"
+      "target": [
+        "nsis",
+        "msi"
+      ],
+      "icon": "./app/assets/ico/icon.ico"
     },
+    "nsis": {
+      "shortcutName": "Package Shortcut Name",
+      "artifactName": "Setup ${productName} v${version}.${ext}",
+      "installerIcon": "./app/assets/ico/icon.ico",
+      "oneClick": true,
+      "perMachine": true,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": true,
+      "allowToChangeInstallationDirectory": false
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "./app/assets/ico/mac512.icns",
+      "category": "public.app-category.graphics-design"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "title": "MAC ${productName} ${version}",
+      "icon": "./app/assets/ico/mac512.icns"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "deb": {},
     "directories": {
-      "buildResources": "public"
+      "buildResources": "./app",
+      "output": "dist-certificate-win"
     },
     "files": [
-      "app/*",
-      "app/**/*",
-      "dist/**/*",
       "package.json",
-      "node_modules/**/*",
-      "public/*",
-      {
-        "from": "src",
-        "to": "build",
-        "filter": "**/*"
-      }
+      "app/**/*"
     ]
   }
 }
