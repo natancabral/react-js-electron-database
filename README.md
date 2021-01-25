@@ -14,7 +14,7 @@ npm run start
   * Working with: [Babel](#working-with-babel) | read: [css-error](#css-error)
   * Working with: [Concurrently + Wait-on](#working-with-wait-on-and-concurrently) (need nodejs installed to run)
 * Database
-  * MySql
+  * [MySql](#mysql)
   * Sqlite3 (todo)
 * [AppTray Window](#apptray-window)
   * Tray + NativeImage (todo)
