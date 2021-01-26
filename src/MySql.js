@@ -14,6 +14,7 @@ function MySql() {
       password: "",
       database: "databasename",
   }
+  const [list,setList] = React.useState([]);
   const {host, user, password, database} = dataConnection; 
 
   // function connection mysql remote
@@ -41,14 +42,17 @@ function MySql() {
           timeout: 40000, // 40s
         },
         [0], // values to replace ?
-        sql, function (err, results, fields) {
+        function (err, results, fields) {
       if (err) {
         alert(err.code);
         console.log(err.code);
       } else {
         alert(results);
         console.log(results);
-        if (results.length) alert(results[0].id + results[0].name);
+        if (results.length) {
+            setList(results);
+            alert(results[0].id + results[0].name);
+        }
       }
     });
 
@@ -80,6 +84,15 @@ function MySql() {
             <li>Password: {password}</li>
             <li>Database: {database}</li>
         </ul>
+      </div>
+      <div>
+          <ul>
+              {list.map((dat,idx) => {
+                  return (
+                      <li key={idx}> {dat.id} {dat.name} </li>
+                  )
+              })}
+          </ul>
       </div>
     </React.Fragment>
   );
