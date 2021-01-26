@@ -241,7 +241,7 @@ gulp.task('js*', () => {
 //4. Compile IMAGES file and move them to the app folder
 // ------------------------------------------------------------------------------------ All images inside ./assets/
 gulp.task('images', () => {
-    return gulp.src('src/assets/*')
+    return gulp.src('src/assets/**/*')
          .pipe(gulp.dest('app/assets'))
          .pipe(livereload());
 })
@@ -400,7 +400,7 @@ inside same component file:
      });
      
      // Close the connection
-     connection.end(function(){
+     conn.end(function(){
         // The connection has been closed
         console.log('Connection successfully closed');
      });
