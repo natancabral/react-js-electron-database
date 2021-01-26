@@ -39,7 +39,7 @@ function MySql() {
     conn.query(
         {
           sql: sql,
-          timeout: 40000, // 40s
+          timeout: 40 * 1000, // 40s
         },
         [0], // values to replace ?
         function (err, results, fields) {
@@ -85,7 +85,7 @@ function MySql() {
             <li>Database: {database}</li>
         </ul>
       </div>
-      <div>
+      <div style={{fontSize:'11px', textAlign:'left'}}>
           <ul>
               {list.map((dat,idx) => {
                   return (
