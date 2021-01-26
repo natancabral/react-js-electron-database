@@ -400,7 +400,7 @@ inside same component file:
      });
      
      // Close the connection
-     connection.end(function(){
+     conn.end(function(){
         // The connection has been closed
         console.log('Connection successfully closed');
      });
