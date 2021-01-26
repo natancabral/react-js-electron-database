@@ -3,6 +3,8 @@ import mysql from "mysql";
 
 function MySql() {
 
+  // https://github.com/mysqljs/mysql
+
   // set connection variable
   const [conn, setConn] = React.useState(undefined);
   const dataConnection = {
@@ -30,8 +32,16 @@ function MySql() {
 
   // function query/search
   const query = () => {
-    let sql = "SELECT `name`,`id` FROM `tablename` where id > 0  limit 0,50 ";
-    conn.query(sql, function (err, results, fields) {
+    let sql = "SELECT `name`,`id` FROM `tablename` where id > ?  limit 0,50 ";
+    //let value = connection.escape(value);
+    //let id = connection.escapeId(id);
+    conn.query(
+        {
+          sql: sql,
+          timeout: 40000, // 40s
+        },
+        [0], // values to replace ?
+        sql, function (err, results, fields) {
       if (err) {
         alert(err.code);
         console.log(err.code);
@@ -43,16 +53,26 @@ function MySql() {
     });
 
     // Close the connection
-    connection.end(function () {
+    conn.end(function () {
       // The connection has been closed
     });
   };
+
+  const queryPost = () => {
+    var post  = {id: 1, title: 'Hello MySQL'};
+    var query = conn.query('INSERT INTO posts SET ?', post, function (error, results, fields) {
+      if (error) throw error;
+      // Neat!
+    });
+    console.log(query.sql); // INSERT INTO posts SET `id` = 1, `title` = 'Hello MySQL'
+  }
 
   return (
     <React.Fragment>
       <p>Click to connect database</p>
       <button onClick={() => connection()}>Connection MYSQL</button>
       <button onClick={() => query()}>Query</button>
+      <button onClick={() => queryPost()}>Query with Post</button>
       <div style={{fontSize:'11px', textAlign:'left'}}>
         <ul>
             <li>Host: {host}</li>
