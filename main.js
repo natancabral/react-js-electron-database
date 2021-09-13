@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, ipcMain, BrowserWindow } = require('electron')
 const path = require('path')
 //const url = require('url')
 
@@ -32,3 +32,8 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+ipcMain.on('app_version', (event) => {
+  event.sender.send('app_version', { version: app.getVersion() });
+  console.log('Version', app.getVersion());
+});
