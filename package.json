@@ -13,15 +13,19 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
+    "babel": "^6.23.0",
     "fs": "^0.0.1-security",
-    "gulp-cli": "^2.3.0",
+    "gulp-cli": "^1.4.0",
     "gulp-livereload": "^4.0.2",
     "mysql": "^2.18.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "^1.1.5",
-    "vinyl-fs": "^3.0.3",
-    "web-vitals": "^0.2.4"
+    "react-script": "^2.0.5",
+    "react-scripts": "^4.0.3",
+    "vinyl-fs": "^2.4.1",
+    "web-vitals": "^0.2.4",
+    "webpack": "^5.52.1",
+    "webpack-manifest-plugin": "^4.0.2"
   },
   "main": "app/main.js",
   "scripts": {
