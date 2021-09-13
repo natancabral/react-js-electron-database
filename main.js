@@ -7,10 +7,11 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      //webSecurity: false,
-      //allowRunningInsecureContent: true,
-      //preload: path.join(__dirname, 'preload.js')
-      nodeIntegration: true
+      // webSecurity: false,
+      // allowRunningInsecureContent: true,
+      // preload: path.join(__dirname, 'preload.js')
+      nativeWindowOpen: true,
+      nodeIntegration: true,
     }
   })
 
